@@ -36,7 +36,7 @@ const overlayImages = [
 let imageIndices = JSON.parse(localStorage.getItem('imageIndices')) || {};
 
 function overlayImage(img) {
-    const overlay = img.nextElementSibling;
+    const overlay = img.nextElementSibling; //함수를 실행한 객체의 다음요소에 적용
     const imgIdentifier = img.src; // 이미지의 src를 식별자로 사용
 
     // 이 이미지에 대한 인덱스가 없으면 초기화

@@ -62,7 +62,7 @@
     position: relative;
     width: 80px;
     height: 105px;
-    margin: 3px;
+    margin: 1px;
     border-radius: 5px;
     background-color: rgb(255, 118, 69);
     overflow: hidden; /* 이미지를 li 안에 가둬서 넘치지 않도록 함 */
