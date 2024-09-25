@@ -35,32 +35,42 @@ function loadOverlayState(img) {
 }
 
 
-// 오버레이 이미지 배열과 현재 인덱스를 저장할 객체 생성
-const overlayImages = ['resources/graphics/elite_none.png',
-                        'resources/graphics/elite_0.png',
-                        'resources/graphics/elite_1.png',
-                        'resources/graphics/elite_2.png'
-                    ]; // 사용할 오버레이 이미지 경로들
-let currentIndex = 0; // 현재 오버레이 이미지의 인덱스
+
+const overlayImages = [
+    'resources/graphics/elite_none.png',
+    'resources/graphics/28px.png',
+    'resources/graphics/elite_0.png',
+    'resources/graphics/elite_1.png',
+    'resources/graphics/elite_2.png'
+];
+
+// 각 이미지의 현재 인덱스를 저장할 객체
+const imageIndices = {};
 
 function overlayImage(img) {
     const overlay = img.nextElementSibling;
-    
-    // 오버레이 이미지가 처음 실행될 때 설정
-    if (!overlay.src) {
-        overlay.src = overlayImages[currentIndex];
+    const imgIdentifier = img.src; // 이미지의 src를 식별자로 사용
+
+    // 이 이미지에 대한 인덱스가 없으면 초기화
+    if (imageIndices[imgIdentifier] === undefined) {
+        imageIndices[imgIdentifier] = 0;
     }
+
+    // 현재 이미지의 인덱스 가져오기
+    let currentIndex = imageIndices[imgIdentifier];
 
     // 이미지를 클릭할 때마다 인덱스를 업데이트하여 다음 이미지를 표시
     currentIndex = (currentIndex + 1) % overlayImages.length; // 인덱스를 순환
     overlay.src = overlayImages[currentIndex];
-    
-    // 오버레이 이미지 표시/숨기기
-    //const isDisplayed = overlay.style.display !== 'none';
-    //overlay.style.display = isDisplayed ? 'none' : 'block';
-    
+
+    // 업데이트된 인덱스 저장
+    imageIndices[imgIdentifier] = currentIndex;
+
+    // 오버레이 이미지 표시
+    overlay.style.display = 'block';
+
     // 오버레이 상태 저장 (필요에 따라 수정 가능)
-    saveOverlayState(img, !isDisplayed);
+    saveOverlayState(img, true);
 }
 
 // 페이지 로드 시 오버레이 상태 복원
