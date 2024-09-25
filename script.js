@@ -22,18 +22,6 @@ function openTab(evt, tabName) {
 }
 
 
-// 오버레이 상태를 저장하는 함수
-function saveOverlayState(img, isDisplayed) {
-    const operatorName = img.parentElement.dataset.name;
-    localStorage.setItem(`overlay_${operatorName}`, isDisplayed);
-}
-
-// 오버레이 상태를 불러오는 함수
-function loadOverlayState(img) {
-    const operatorName = img.parentElement.dataset.name;
-    return localStorage.getItem(`overlay_${operatorName}`);
-}
-
 
 
 const overlayImages = [
@@ -44,8 +32,8 @@ const overlayImages = [
     'resources/graphics/elite_2.png'
 ];
 
-// 각 이미지의 현재 인덱스를 저장할 객체
-const imageIndices = {};
+// 로컬 스토리지에서 이미지 인덱스를 가져오거나, 없으면 빈 객체로 초기화
+let imageIndices = JSON.parse(localStorage.getItem('imageIndices')) || {};
 
 function overlayImage(img) {
     const overlay = img.nextElementSibling;
@@ -66,51 +54,38 @@ function overlayImage(img) {
     // 업데이트된 인덱스 저장
     imageIndices[imgIdentifier] = currentIndex;
 
+    // 로컬 스토리지에 업데이트된 인덱스 저장
+    localStorage.setItem('imageIndices', JSON.stringify(imageIndices));
+
     // 오버레이 이미지 표시
     overlay.style.display = 'block';
-
-    // 오버레이 상태 저장 (필요에 따라 수정 가능)
-    saveOverlayState(img, true);
 }
 
-// 페이지 로드 시 오버레이 상태 복원
+// 페이지 로드 시 저장된 오버레이 상태 복원
 function restoreOverlayStates() {
-    const operatorList = document.getElementById('operatorList');
-    const operators = operatorList.getElementsByTagName('li');
-    
-    for (let operator of operators) {
-        const img = operator.getElementsByTagName('img')[0];
-        const overlay = operator.getElementsByTagName('img')[1];
-        const state = loadOverlayState(img);
-        
-        /*if (state === 'true') {
+    const images = document.querySelectorAll('.image-list img:not(.overlay)');
+    images.forEach(img => {
+        const overlay = img.nextElementSibling;
+        const imgIdentifier = img.src;
+        if (imageIndices[imgIdentifier] !== undefined) {
+            overlay.src = overlayImages[imageIndices[imgIdentifier]];
             overlay.style.display = 'block';
-        } else {
-            overlay.style.display = 'none';
-        }*/
-    }
+        }
+    });
 }
-// 페이지 로드 시 실행
+
+// 페이지 로드 시 오버레이 상태 복원 함수 호출
 window.addEventListener('load', restoreOverlayStates);
 
+
 function reset() {
-    currentIndex = 0;
-    /*const operatorList = document.getElementById('operatorList');
-    const operators = operatorList.getElementsByTagName('li');
-    
-    for (let operator of operators) {
-        const img = operator.getElementsByTagName('img')[0];
-        const overlay = operator.getElementsByTagName('img')[1];
-        
-        overlay.style.display = 'none'; // 오버레이 숨기기
-        saveOverlayState(img, false); // 오버레이 상태를 'false'로 저장
-        
-        operator.style.display = ""; // 모든 오퍼레이터 표시
-    }*/
-    
-    // 검색 입력 필드 초기화
     const searchInput = document.getElementById('searchInput');
     searchInput.value = '';
+
+
+
+
+
 
     
 }
