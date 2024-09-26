@@ -26,7 +26,7 @@ function openTab(evt, tabName) {
 
 const overlayImages = [
     'resources/graphics/elite_none.png',
-    'resources/graphics/28px.png',
+    'resources/graphics/elite_none.png',
     'resources/graphics/elite_0.png',
     'resources/graphics/elite_1.png',
     'resources/graphics/elite_2.png'
@@ -36,30 +36,61 @@ const overlayImages = [
 let imageIndices = JSON.parse(localStorage.getItem('imageIndices')) || {};
 
 function overlayImage(img) {
-    const overlay = img.nextElementSibling; //함수를 실행한 객체의 다음요소에 적용
-    const imgIdentifier = img.src; // 이미지의 src를 식별자로 사용
+    const overlay = img.nextElementSibling;
+    const imgIdentifier = img.src;
 
-    // 이 이미지에 대한 인덱스가 없으면 초기화
     if (imageIndices[imgIdentifier] === undefined) {
         imageIndices[imgIdentifier] = 0;
     }
-
-    // 현재 이미지의 인덱스 가져오기
     let currentIndex = imageIndices[imgIdentifier];
+    currentIndex = (currentIndex + 1) % overlayImages.length;
 
-    // 이미지를 클릭할 때마다 인덱스를 업데이트하여 다음 이미지를 표시
-    currentIndex = (currentIndex + 1) % overlayImages.length; // 인덱스를 순환
     overlay.src = overlayImages[currentIndex];
-
-    // 업데이트된 인덱스 저장
     imageIndices[imgIdentifier] = currentIndex;
-
-    // 로컬 스토리지에 업데이트된 인덱스 저장
     localStorage.setItem('imageIndices', JSON.stringify(imageIndices));
+    
 
-    // 오버레이 이미지 표시
+    if (currentIndex === 1) {
+        img.style.filter = 'grayscale(100%)';
+        img.style.opacity = '0.5';
+    } else {
+        img.style.filter = 'none';
+        img.style.opacity = '1';
+    }
+
     overlay.style.display = 'block';
 }
+
+
+// 모든 이미지의 인덱스를 지정된 값으로 설정하는 함수
+function setImagesIndex(index) {
+    const images = document.querySelectorAll('.image-list img:not(.overlay)');
+    images.forEach(img => {
+        const overlay = img.nextElementSibling;
+        const imgIdentifier = img.src;
+
+        imageIndices[imgIdentifier] = index;
+        overlay.src = overlayImages[index];
+        overlay.style.display = 'block';
+        // 이미지 스타일 변경 로직 추가
+        if (index === 1) {
+            img.style.filter = 'grayscale(100%)';
+            img.style.opacity = '0.5';
+        }
+        else {
+            img.style.filter = 'none';
+            img.style.opacity = '1';
+        }
+    });
+
+    
+
+    // 업데이트된 인덱스를 로컬 스토리지에 저장
+    localStorage.setItem('imageIndices', JSON.stringify(imageIndices));
+}
+
+
+
 
 // 페이지 로드 시 저장된 오버레이 상태 복원
 function restoreOverlayStates() {
@@ -68,8 +99,18 @@ function restoreOverlayStates() {
         const overlay = img.nextElementSibling;
         const imgIdentifier = img.src;
         if (imageIndices[imgIdentifier] !== undefined) {
-            overlay.src = overlayImages[imageIndices[imgIdentifier]];
+            let currentIndex = imageIndices[imgIdentifier];
+            overlay.src = overlayImages[currentIndex];
             overlay.style.display = 'block';
+            
+            
+            if (currentIndex === 1) {
+                img.style.filter = 'grayscale(100%)';
+                img.style.opacity = '0.5';
+            } else {
+                img.style.filter = 'none';
+                img.style.opacity = '1';
+            }
         }
     });
 }
@@ -78,17 +119,6 @@ function restoreOverlayStates() {
 window.addEventListener('load', restoreOverlayStates);
 
 
-function reset() {
-    const searchInput = document.getElementById('searchInput');
-    searchInput.value = '';
-
-
-
-
-
-
-    
-}
 function searchOperators() {
     const searchInput = document.getElementById('searchInput');
     const filter = searchInput.value.toLowerCase();
