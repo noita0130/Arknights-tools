@@ -5,15 +5,15 @@
 
 .tab-menu {
     display: flex;
-    background-color: #f1f1f1;
+    background-color: transparent;
 }
 
 .tab-menu a {
-    padding: 14px 20px;
+    padding: 8px 10px;
     text-align: center;
     text-decoration: none;
-    flex: 1;
-    color: black;
+    color: rgb(0, 0, 0);
+    width: 150px;
     background-color: #e0e0e0;
     border-right: 1px solid #ccc;
     cursor: pointer;
@@ -25,24 +25,23 @@
 
 .tab-menu a.active {
     background-color: #ccc;
+    color: black;
 }
 
-/* 탭 컨텐츠 스타일 */
 .tab-content {
     display: none;
     padding: 20px;
-    border: 1px solid #ccc;
+    /*border: 1px solid #ccc;*/
     border-top: none;
     background-color: rgb(45, 45, 45);
-
-    
 }
 
 .tab-content.active {
     display: block;
+    margin: auto;
 }
 
- /* 리스트 스타일 */
+/*리스트*/
  .image-list {
     display: flex;
     flex-wrap: wrap;
@@ -66,11 +65,9 @@
     border-radius: 5px;
     background-color: rgb(255, 118, 69);
     overflow: hidden; /* 이미지를 li 안에 가둬서 넘치지 않도록 함 */
-
-    
-    justify-content: center; /* 수직 가운데 정렬 */
-    align-items: center; /* 수평 가운데 정렬 */
-    text-align: center; /* 텍스트도 가운데 정렬 */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 
 }
 
@@ -104,10 +101,10 @@
     margin-top: 0px;
     font-size: 14px;
     display: flex;
-    justify-content: center;  /* 가로 가운데 정렬 */
-    align-items: center;      /* 세로 가운데 정렬 */
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    height: 20px;            /* 높이를 원하는 값으로 설정 */
+    height: 20px;
 }
 
 .image-list .mid {
@@ -118,10 +115,55 @@
     font-size: 9px;
 }
 
-
-
-/* 이미지 리스트 아이템 호버 효과 */
 .image-list li:hover img {
     transform: scale(1.05);
     transition: transform 0.3s;
 }
+
+
+/*탭2*/
+#tab2 {
+    font-family: Arial, sans-serif;
+    background-color: transparent;
+    color: white;
+    padding: 20px;
+    width: 600px;
+}
+.calculator {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #444;
+    padding: 20px;
+    border-radius: 8px;
+}
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.input-group {
+    margin-bottom: 15px;
+}
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+input[type="radio"] {
+    margin-right: 5px;
+}
+input[type="number"] {
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #555;
+    background-color: #333;
+    color: white;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.no-spinner::-webkit-outer-spin-button,
+.no-spinner::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+

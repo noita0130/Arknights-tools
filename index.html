@@ -510,8 +510,39 @@
     </div>
     
     <div id="tab2" class="tab-content">
-        <h2>계산기</h2>
-        <p>여기는 두 번째 탭입니다.</p>
+        <div class="calculator">
+            <h2>데미지 계산기</h2>
+            <div class="input-group">
+                <label>
+                    <input type="radio" id="physic" name="guard" oninput=""> 물리방어
+                    <input type="radio" id="magic" name="guard" oninput=""> 마법방어
+                </label>
+            </div>
+            <div class="input-group">
+                <div>
+                    <button>+</button>
+                </div>
+                    <input type="number" class="no-spinner" id="baseAtk" placeholder="기초공(신뢰도포함)" oninput="">
+            </div>
+            <div class="input-group">
+                <input type="number" class="no-spinner" id="atkBonus" placeholder="추가 공격력%의 합" oninput="">
+            </div>
+            <div class="input-group">
+                <input type="number" class="no-spinner" id="atkBonus" placeholder="방깎" oninput="">
+            </div>
+            <div class="input-group">
+                <input type="number" class="no-spinner" id="atkBonus" placeholder="추가 공격력%의 합" oninput="">
+            </div>
+            <div class="input-group">
+                <input type="number" class="no-spinner" id="debuff1" placeholder="디버프 1 (취약)" oninput="">
+            </div>
+            <div class="input-group">
+                <input type="number" class="no-spinner" id="debuff2" placeholder="디버프 2" oninput="">
+            </div>
+            <div class="input-group">
+                <input type="number" class="no-spinner" id="debuff3" placeholder="디버프 3" oninput="">
+            </div>
+        </div>
     </div>
     
     <div id="tab3" class="tab-content">
