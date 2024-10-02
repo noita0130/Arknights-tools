@@ -127,10 +127,10 @@
     background-color: transparent;
     color: white;
     padding: 20px;
-    width: 800px;
+    width: 600px;
 }
 .calculator {
-    max-width: 100%;
+    max-width: 400px;
     margin: 0 auto;
     background-color: #444;
     padding: 20px;
@@ -140,71 +140,24 @@ h2 {
     text-align: center;
     margin-bottom: 20px;
 }
-
 .input-group {
-    display: flex;
-    width: 300px;
-    margin-bottom: 20px auto;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
-
-.input-group label{
-    height: 30px ;
-    line-height: 30px;
-    padding: 0px;
-    box-sizing: border-box;
-    justify-content: center;
-    
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
 }
-
-.input-number {
-    display: flex;
-    align-items: center;
-    width: 160px;
-    height: 30px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    overflow: hidden;
-}
-.input-number button {
-    width: 30px;
-    height: 30px;
-    border: none;
-    background-color: #f8f8f8;
-    cursor: pointer;
-    font-size: 18px;
-}
-
-.input-number button:hover {
-    background-color: #e8e8e8;
-}
-.input-number input {
-    width: 100px;
-    height: 30px;
-    padding: 8px;
-    border: 1px solid #555;
-    background-color: #333;
-    text-align: center;
-    font-size: 16px;
-    color: white;
-    box-sizing: border-box;
-}
-
-.input-number input::-webkit-inner-spin-button, 
-.input-number input::-webkit-outer-spin-button { 
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-.input-number input[type=number] {
-    -moz-appearance: textfield;
-}
-
-
 input[type="radio"] {
     margin-right: 5px;
+}
+input[type="number"] {
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #555;
+    background-color: #333;
+    color: white;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
 .no-spinner::-webkit-outer-spin-button,
