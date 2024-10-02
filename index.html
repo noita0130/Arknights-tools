@@ -521,12 +521,15 @@
                 </div>
             </div>
             <div class="input-group">
-                <label>기초공격력</label>
-                <div class="input-number">
-                    <button onclick="">-</button>
-                    <input type="number" value="0" min="0" id="baseAtk" oninput="dmgcal()">
-                    <button onclick="">+</button>
+                <div class="input-norange">
+                    <label>기초공격력</label>
+                    <div class="input-number">
+                        <button onclick="decrement(this)">-</button>
+                        <input type="number" id="number" value="0" min="0"  oninput="dmgcal()">
+                        <button onclick="increment(this)">+</button>
+                    </div>   
                 </div>
+                <input type="range">
             </div>
         </div>
     </div>

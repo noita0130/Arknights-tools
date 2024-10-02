@@ -127,7 +127,7 @@
     background-color: transparent;
     color: white;
     padding: 20px;
-    width: 800px;
+    width: 1000px;
 }
 .calculator {
     max-width: 100%;
@@ -142,12 +142,15 @@ h2 {
 }
 
 .input-group {
-    display: flex;
-    width: 300px;
+    width: 800px;
     margin-bottom: 20px auto;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
+}
+
+.input-group div{
+    align-items: center;
 }
 
 .input-group label{
@@ -155,19 +158,27 @@ h2 {
     line-height: 30px;
     padding: 0px;
     box-sizing: border-box;
-    justify-content: center;
-    
+}
+
+.input-norange {
+    display: flex;
+    width: 300px;
+    height: 30px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    justify-content: space-between;
+
 }
 
 .input-number {
     display: flex;
-    align-items: center;
     width: 160px;
     height: 30px;
     border: 1px solid #ccc;
     border-radius: 4px;
     overflow: hidden;
 }
+
 .input-number button {
     width: 30px;
     height: 30px;
@@ -205,6 +216,10 @@ h2 {
 
 input[type="radio"] {
     margin-right: 5px;
+}
+
+input[type="range"]{
+    width: 100%;
 }
 
 .no-spinner::-webkit-outer-spin-button,

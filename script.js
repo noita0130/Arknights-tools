@@ -131,6 +131,22 @@ function searchOperators() {
     }
 }
 
-function dmgcal(){
-    
+
+const input = document.getElementById('number');
+function updateValue(input){
+    input.value = Math.max(0, parseInt(input.value) || 0);
 }
+
+function decrement(btn){
+    const input = btn.nextElementSibling;
+    input.value = parseInt(input.value) + 1
+    updateValue(input);
+}
+
+function increment(btn){
+    const input = btn.previousElementSibling;
+    input.value = parseInt(input.value) + 1
+    updateValue(input);
+
+}
+
