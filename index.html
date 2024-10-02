@@ -513,20 +513,34 @@
         <div class="calculator">
             <h2>데미지 계산기</h2>
             <div class="input-group">
-                <div>
-                    <input type="radio" id="physic" name="guard" oninput="">
-                    <label for="physic">물리방어</label>
-                    <input type="radio" id="magic" name="guard" oninput="">
-                    <label for="magic">마법방어</label>
-                </div>
+                <label>
+                    <input type="radio" id="physic" name="guard" oninput=""> 물리방어
+                    <input type="radio" id="magic" name="guard" oninput=""> 마법방어
+                </label>
             </div>
             <div class="input-group">
-                <label>기본공격력</label>
-                <div class="input-number">
-                    <button onclick="">-</button>
-                    <input type="number" value="0" min="0" id="baseAtk" oninput="dmgcal()">
-                    <button onclick="">+</button>
+                <div>
+                    <button>+</button>
                 </div>
+                    <input type="number" class="no-spinner" id="baseAtk" placeholder="기초공(신뢰도포함)" oninput="">
+            </div>
+            <div class="input-group">
+                <input type="number" class="no-spinner" id="atkBonus" placeholder="추가 공격력%의 합" oninput="">
+            </div>
+            <div class="input-group">
+                <input type="number" class="no-spinner" id="atkBonus" placeholder="방깎" oninput="">
+            </div>
+            <div class="input-group">
+                <input type="number" class="no-spinner" id="atkBonus" placeholder="추가 공격력%의 합" oninput="">
+            </div>
+            <div class="input-group">
+                <input type="number" class="no-spinner" id="debuff1" placeholder="디버프 1 (취약)" oninput="">
+            </div>
+            <div class="input-group">
+                <input type="number" class="no-spinner" id="debuff2" placeholder="디버프 2" oninput="">
+            </div>
+            <div class="input-group">
+                <input type="number" class="no-spinner" id="debuff3" placeholder="디버프 3" oninput="">
             </div>
         </div>
     </div>
