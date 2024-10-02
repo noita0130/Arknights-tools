@@ -82,13 +82,9 @@ function setImagesIndex(index) {
             img.style.opacity = '1';
         }
     });
-
-    
-
     // 업데이트된 인덱스를 로컬 스토리지에 저장
     localStorage.setItem('imageIndices', JSON.stringify(imageIndices));
 }
-
 
 
 
@@ -133,4 +129,8 @@ function searchOperators() {
             operators[i].style.display = "none";
         }
     }
+}
+
+function dmgcal(){
+    
 }
