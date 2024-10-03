@@ -132,21 +132,50 @@ function searchOperators() {
 }
 
 
-const input = document.getElementById('number');
-function updateValue(input){
-    input.value = Math.max(0, parseInt(input.value) || 0);
+let dmgcalTimeout;
+
+function debounce(func, wait) {
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(dmgcalTimeout);
+            func(...args);
+        };
+        clearTimeout(dmgcalTimeout);
+        dmgcalTimeout = setTimeout(later, wait);
+    };
 }
 
-function decrement(btn){
-    const input = btn.nextElementSibling;
-    input.value = parseInt(input.value) + 1
-    updateValue(input);
+const debouncedDmgcal = debounce(() => {
+    // 여기에 데미지 계산 로직을 구현하세요
+    console.log("데미지 계산 함수 호출됨");
+}, 100);
+
+function syncInputs(numberInput, rangeInput) {
+    numberInput.addEventListener('input', function() {
+        rangeInput.value = this.value;
+        debouncedDmgcal();
+    });
+    rangeInput.addEventListener('input', function() {
+        numberInput.value = this.value;
+        debouncedDmgcal();
+    });
 }
 
-function increment(btn){
+function increment(btn) {
     const input = btn.previousElementSibling;
-    input.value = parseInt(input.value) + 1
-    updateValue(input);
-
+    input.stepUp();
+    input.dispatchEvent(new Event('input'));
 }
 
+function decrement(btn) {
+    const input = btn.nextElementSibling;
+    input.stepDown();
+    input.dispatchEvent(new Event('input'));
+}
+
+// 페이지 로드 시 입력 동기화 설정
+window.addEventListener('load', function() {
+    const numberInput = document.querySelector('.number-input');
+    const rangeInput = document.querySelector('.range-input');
+    syncInputs(numberInput, rangeInput);
+});
