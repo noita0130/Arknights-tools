@@ -512,24 +512,64 @@
     <div id="tab2" class="tab-content">
         <div class="calculator">
             <h2>데미지 계산기</h2>
-            <div class="input-group">
-                <div>
-                    <input type="radio" id="physic" name="guard" oninput="">
-                    <label for="physic">물리방어</label>
-                    <input type="radio" id="magic" name="guard" oninput="">
-                    <label for="magic">마법방어</label>
+            <div class="frame">
+                <div class="radioselect">
+                    <div>
+                        <input type="radio" id="physic" name="deftype" value="A" oninput="" checked>
+                        <label for="physic">물리방어</label>
+                        <input type="radio" id="magic" name="deftype" value="B" oninput="">
+                        <label for="magic">마법방어</label>
+                    </div>
                 </div>
-            </div>
-            <div class="input-group">
-                <div class="input-atk">
-                    <label>기초공격력</label>
-                    <div class="input-number">
-                        <button onclick="decrement(this)">-</button>
-                        <input type="number" class="number-input" value="0" min="0" max="2000" onchange="dmgcal()">
-                        <button onclick="increment(this)">+</button>
-                    </div>   
+                <div class="input-group">
+                    <div class="input-atk">
+                        <label>기초공격력</label>
+                        <div class="input-number">
+                            <button onclick="decrement(this)">-</button>
+                            <input type="number" class="number-input" id="attack" min="0" max="2000" value="0" onchange="debouncedDmgcal()">
+                            <button onclick="increment(this)">+</button>
+                        </div>   
+                    </div>
+                    <input type="range" class="range-input" min="0" max="2000" value="0">
                 </div>
-                <input type="range" class="range-input" min="0" max="2000" value="0">
+                <div class="input-grid">
+                    <div class="grid-item column-1">
+                        <div class="input-atk">
+                        <label>공격력 n%까지 증가</label>
+                            <div class="input-number">
+                                <button onclick="decrement(this)">-</button>
+                                <input type="number" class="number-input" id="defense" value="0" min="0" max="200" onchange="debouncedDmgcal()">
+                                <button onclick="increment(this)">+</button>
+                            </div>   
+                        </div>
+                        <input type="range" class="range-input" min="0" max="200" value="0">
+                    </div>
+                    <div class="grid-item column-2">
+                        <div class="input-atk">
+                        <label>방어력</label>
+                            <div class="input-number">
+                                <button onclick="decrement(this)">-</button>
+                                <input type="number" class="number-input" id="defense" value="0" min="0" max="200" onchange="debouncedDmgcal()">
+                                <button onclick="increment(this)">+</button>
+                            </div>   
+                        </div>
+                        <input type="range" class="range-input" min="0" max="200" value="0">
+                    </div>
+                    <div class="grid-item column-3">
+                        <div class="input-atk">
+                            <label>마법저항</label>
+                                <div class="input-number">
+                                    <button onclick="decrement(this)">-</button>
+                                    <input type="number" class="number-input" id="defense" value="0" min="0" max="200" onchange="debouncedDmgcal()">
+                                    <button onclick="increment(this)">+</button>
+                                </div>   
+                            </div>
+                            <input type="range" class="range-input" min="0" max="200" value="0">
+                    </div>
+                    <div class="grid-item column-1">
+                        
+                    </div>
+                </div>
             </div>
         </div>
     </div>

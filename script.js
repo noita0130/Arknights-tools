@@ -145,16 +145,28 @@ function debounce(func, wait) {
     };
 }
 
-const debouncedDmgcal = debounce(() => {
-    // 여기에 데미지 계산 로직을 구현하세요
-    console.log("데미지 계산 함수 호출됨");
-}, 100);
+function calculateDamage() {
+    const attack = parseInt(document.getElementById('attack').value);
+    const defense = parseInt(document.getElementById('defense').value);
+    const defType = document.querySelector('input[name="deftype"]:checked')?.id;
+    let damage = 0;
+
+    if (defType === 'physic') {
+        damage = Math.max(0, attack - defense);
+    } else if (defType === 'magic') {
+        damage = Math.max(0, attack - Math.floor(defense * 0.7));
+    }
+    console.log(`계산된 데미지: ${damage}`);
+}
+
+const debouncedDmgcal = debounce(calculateDamage, 100);
 
 function syncInputs(numberInput, rangeInput) {
     numberInput.addEventListener('input', function() {
         rangeInput.value = this.value;
         debouncedDmgcal();
     });
+
     rangeInput.addEventListener('input', function() {
         numberInput.value = this.value;
         debouncedDmgcal();
@@ -173,9 +185,47 @@ function decrement(btn) {
     input.dispatchEvent(new Event('input'));
 }
 
-// 페이지 로드 시 입력 동기화 설정
+// 페이지 로드 시 모든 입력 그룹에 대해 동기화 설정
 window.addEventListener('load', function() {
-    const numberInput = document.querySelector('.number-input');
-    const rangeInput = document.querySelector('.range-input');
-    syncInputs(numberInput, rangeInput);
+    const inputGroups = document.querySelectorAll('.input-group, .input-grid > div');
+    inputGroups.forEach(group => {
+        const numberInput = group.querySelector('.number-input');
+        const rangeInput = group.querySelector('.range-input');
+        if (numberInput && rangeInput) {
+            syncInputs(numberInput, rangeInput);
+        }
+    });
+    
+    // 라디오 버튼에 이벤트 리스너 추가
+    document.querySelectorAll('input[name="deftype"]').forEach(radio => {
+        radio.addEventListener('change', debouncedDmgcal);
+    });
+    
+    // 초기 계산 수행
+    calculateDamage();
+});
+
+const radioButtons = document.querySelectorAll('input[name="deftype"]');
+const gridContainer = document.querySelector('.input-grid');
+const column2Items = document.querySelectorAll('.column-2');
+const column3Items = document.querySelectorAll('.column-3');
+
+radioButtons.forEach(radio => {
+    radio.addEventListener('change', (event) => {
+        if (event.target.value === 'A') {
+            //column3을 가리고 column2를 보여주기
+            gridContainer.classList.add('hide-column-3');
+            column3Items.forEach(item => item.classList.add('hidden'));
+            gridContainer.classList.remove('hide-column-2');
+            column2Items.forEach(item => item.classList.remove('hidden'));
+            
+
+        } else {
+            //column2를 가리고 column3를 보여주기
+            gridContainer.classList.add('hide-column-2');
+            column2Items.forEach(item => item.classList.add('hidden'));
+            gridContainer.classList.remove('hide-column-3');
+            column3Items.forEach(item => item.classList.remove('hidden'));
+        }
+    });
 });
