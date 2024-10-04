@@ -229,3 +229,11 @@ radioButtons.forEach(radio => {
         }
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const initialCheckedRadio = document.querySelector('input[name="deftype"]:checked');
+    if (initialCheckedRadio && initialCheckedRadio.value === 'A') {
+        gridContainer.classList.add('hide-column-3');
+        column3Items.forEach(item => item.classList.add('hidden'));
+    }
+});
