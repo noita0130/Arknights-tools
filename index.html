@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>탭 메뉴 예시</title>
+    <meta name="google-site-verification" content="Sx2a79nNCfoTBZTrBoUBsDlFjGlRQoA2u_AqN2QSreI" />
+    <title>명일방주 도구</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <!-- 탭 메뉴 -->
     <div class="tab-menu">
-        <a class="active" onclick="openTab(event, 'tab1')">보유 오퍼레이터</a>
+        <a onclick="openTab(event, 'tab1')">오퍼 체크리스트</a>
         <a onclick="openTab(event, 'tab2')">데미지 계산기</a>
         <a onclick="openTab(event, 'tab3')">제작중</a>
     </div>
 
     <!-- 탭 컨텐츠 -->
-    <div id="tab1" class="tab-content active">
+    <div id="tab1" class="tab-content">
         <h1><font color="white">오퍼레이터 목록</font></h1>
         <input type="text" id="searchInput" placeholder="오퍼레이터 검색..." oninput="searchOperators()">
         <button onclick="setImagesIndex(0)">초기화</button>
