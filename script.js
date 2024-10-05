@@ -248,13 +248,13 @@ let finalAtk = Decimal.max(0,
     }
   }
 
+    const label = document.querySelector('.result-group .result');
+
     if (label) {
         label.innerHTML = `결과값 : ${finalDamage.toFixed(2)}`;
-        console.log('결과값이 업데이트됨:', label.innerHTML);
     } else {
         console.error('결과를 표시할 요소를 찾을 수 없습니다.');
     }
-    
 }
 
 const debouncedDmgcal = debounce(calculateDamage, 100);
