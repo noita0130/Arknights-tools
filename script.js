@@ -146,17 +146,120 @@ function debounce(func, wait) {
 }
 
 function calculateDamage() {
-    const attack = parseInt(document.getElementById('attack').value);
-    const defense = parseInt(document.getElementById('defense').value);
-    const defType = document.querySelector('input[name="deftype"]:checked')?.id;
-    let damage = 0;
+    const atk = new Decimal(parseFloat(document.getElementById('atk').value));
+    const atkBnsPer = new Decimal(parseFloat(document.getElementById('atkBonusPer').value));
+    const atkBy = new Decimal(parseFloat(document.getElementById('atkBy').value));
+    const dmgBy = new Decimal(parseFloat(document.getElementById('dmgBy').value));
+    const opCrg = new Decimal(parseFloat(document.getElementById('opCourage').value));
+    const crgBns = new Decimal(parseFloat(document.getElementById('courageBonus').value));
+    const dmgWeak = new Decimal(parseFloat(document.getElementById('dmgWeak').value));
+    const skilldmgBns = new Decimal(parseFloat(document.getElementById('skilldmgBonus').value));
+    const dmgBonus = new Decimal(parseFloat(document.getElementById('dmgBonus').value));
+    const phyDef = new Decimal(parseFloat(document.getElementById('physicalDef').value));
+    const phyDefIg = new Decimal(parseFloat(document.getElementById('physicalDefIgnore').value));
+    const phyDefIgPer = new Decimal(parseFloat(document.getElementById('physicalDefIgnorePer').value));
+    const phyDefMns = new Decimal(parseFloat(document.getElementById('physicalDefMinus').value));
+    const phyDefMnsPer1 = new Decimal(parseFloat(document.getElementById('physicalDefMinusPer1').value));
+    const phyDefMnsPer2 = new Decimal(parseFloat(document.getElementById('physicalDefMinusPer2').value));
+    const phyDefMnsPer3 = new Decimal(parseFloat(document.getElementById('physicalDefMinusPer3').value));
+    const phyDmgBns = new Decimal(parseFloat(document.getElementById('physicalDmgBonus').value));
+    const mgDef = new Decimal(parseFloat(document.getElementById('magicDef').value));
+    const mgDefIg = new Decimal(parseFloat(document.getElementById('magicDefIgnore').value));
+    const mgDefMns = new Decimal(parseFloat(document.getElementById('magicDefMinus').value));
+    const mgDefMnsPer1 = new Decimal(parseFloat(document.getElementById('magicDefMinusPer1').value));
+    const mgDefMnsPer2 = new Decimal(parseFloat(document.getElementById('magicDefMinusPer2').value));
+    const mgDefMnsPer3 = new Decimal(parseFloat(document.getElementById('magicDefMinusPer3').value));
+    const mgDmgWeak = new Decimal(parseFloat(document.getElementById('magicDmgWeak').value));
+    const mgDmgBns = new Decimal(parseFloat(document.getElementById('magicDmgBonus').value));
+    
 
-    if (defType === 'physic') {
-        damage = Math.max(0, attack - defense);
-    } else if (defType === 'magic') {
-        damage = Math.max(0, attack - Math.floor(defense * 0.7));
+    const defType = document.querySelector('input[name="deftype"]:checked')?.id;
+
+    // 최종공격력 계산
+let finalAtk = Decimal.max(0,
+    atk.mul(Decimal.add(1, atkBnsPer.mul(0.01)))
+      .add(opCrg.mul(Decimal.add(1, crgBns.mul(0.01))))
+      .mul(Decimal.add(1, atkBy.mul(0.01)))
+      .mul(Decimal.add(1, dmgBy.mul(0.01)))
+  );
+  
+  // 최종 방어력 계산
+  let finalDef = Decimal.max(0,
+    phyDef.minus(phyDefMns)
+      .mul(Decimal.sub(1, phyDefMnsPer1.mul(0.01)))
+      .mul(Decimal.sub(1, phyDefMnsPer2.mul(0.01)))
+      .mul(Decimal.sub(1, phyDefMnsPer3.mul(0.01)))
+      .mul(Decimal.sub(1, phyDefIgPer.mul(0.01)))
+      .minus(phyDefIg)
+  );
+  
+  // 최종 마법 저항 계산
+  let finalMgDef = Decimal.max(0,
+    mgDef.minus(mgDefMns)
+      .mul(Decimal.sub(1, mgDefMnsPer1.mul(0.01)))
+      .mul(Decimal.sub(1, mgDefMnsPer2.mul(0.01)))
+      .mul(Decimal.sub(1, mgDefMnsPer3.mul(0.01)))
+      .minus(mgDefIg)
+  );
+  console.log(`finalMgDef: ${finalMgDef.toString()}`);
+  // 최종 데미지 계산
+  let damage = finalAtk;
+  
+  if (defType === 'physic') {
+    damage = Decimal.max(0, finalAtk.minus(finalDef));
+    if (damage.greaterThanOrEqualTo(finalAtk.mul(0.05))) {
+      finalDamage = Decimal.max(0, 
+        finalAtk.minus(finalDef)
+          .mul(Decimal.add(1, skilldmgBns.mul(0.01)))
+          .mul(Decimal.add(1, dmgWeak.mul(0.01)))
+          .mul(Decimal.add(1, dmgBonus.mul(0.01)))
+          .mul(Decimal.add(1, phyDmgBns.mul(0.01)))
+      );
+    } else {
+      finalDamage = Decimal.max(0, 
+        finalAtk.mul(0.05)
+          .mul(Decimal.add(1, dmgWeak.mul(0.01)))
+          .mul(Decimal.add(1, dmgBonus.mul(0.01)))
+      );
     }
-    console.log(`계산된 데미지: ${damage}`);
+  
+  } else if (defType === 'magic') {
+    damage = Decimal.max(0, finalAtk.mul(Decimal.sub(1, finalMgDef.mul(0.01))));  
+
+    //씨발왜안됨
+    if (damage.greaterThanOrEqualTo(finalAtk.mul(0.05))) {
+      finalDamage = Decimal.max(0, 
+        finalAtk
+          .mul(Decimal.sub(1, finalMgDef.mul(0.01)))
+          .mul(Decimal.add(1, skilldmgBns.mul(0.01)))
+          .mul(Decimal.add(1, dmgWeak.mul(0.01)))
+          .mul(Decimal.add(1, dmgBonus.mul(0.01)))
+          .mul(Decimal.add(1, mgDmgBns.mul(0.01)))
+          .mul(Decimal.add(1, mgDmgWeak.mul(0.01)))
+      );
+    } else {
+      finalDamage = Decimal.max(0, 
+        finalAtk.mul(0.05)
+          .mul(Decimal.add(1, dmgWeak.mul(0.01)))
+          .mul(Decimal.add(1, dmgBonus.mul(0.01)))
+          .mul(Decimal.add(1, mgDmgBns.mul(0.01)))
+          .mul(Decimal.add(1, mgDmgWeak.mul(0.01)))
+      );
+    }
+  }
+
+    console.log('calculateDamage 함수 실행됨');
+    console.log('계산된 finalDamage:', finalDamage.toString());
+
+    const label = document.querySelector('.result-group .result');
+
+    if (label) {
+        label.innerHTML = `결과값 : ${finalDamage.toFixed(2)}`;
+        console.log('결과값이 업데이트됨:', label.innerHTML);
+    } else {
+        console.error('결과를 표시할 요소를 찾을 수 없습니다.');
+    }
+    
 }
 
 const debouncedDmgcal = debounce(calculateDamage, 100);
@@ -194,11 +297,24 @@ window.addEventListener('load', function() {
         if (numberInput && rangeInput) {
             syncInputs(numberInput, rangeInput);
         }
+
+        // 모든 입력 요소에 이벤트 리스너 추가
+        if (numberInput) {
+            numberInput.addEventListener('input', debouncedDmgcal);
+        }
+        if (rangeInput) {
+            rangeInput.addEventListener('input', debouncedDmgcal);
+        }
     });
     
     // 라디오 버튼에 이벤트 리스너 추가
     document.querySelectorAll('input[name="deftype"]').forEach(radio => {
         radio.addEventListener('change', debouncedDmgcal);
+    });
+
+    // 모든 입력 요소에 대해 이벤트 리스너 추가
+    document.querySelectorAll('input[type="number"], input[type="range"]').forEach(input => {
+        input.addEventListener('input', debouncedDmgcal);
     });
     
     // 초기 계산 수행
@@ -236,4 +352,21 @@ document.addEventListener('DOMContentLoaded', function() {
         gridContainer.classList.add('hide-column-3');
         column3Items.forEach(item => item.classList.add('hidden'));
     }
+});
+
+document.getElementById('resetButton').addEventListener('click', function() {
+    // 모든 number-input과 range-input을 선택
+    const numberInputs = document.querySelectorAll('.number-input');
+    const rangeInputs = document.querySelectorAll('.range-input');
+
+    // number-input 초기화
+    numberInputs.forEach(input => {
+        input.value = 0;
+        input.dispatchEvent(new Event('change')); // change 이벤트 발생
+    });
+
+    // range-input 초기화
+    rangeInputs.forEach(input => {
+        input.value = 0;
+    });
 });
