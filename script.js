@@ -25,11 +25,11 @@ function openTab(evt, tabName) {
 
 
 const overlayImages = [
-    'https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png',
-    'https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png',
-    'https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_0.png',
-    'https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_1.png',
-    'https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_2.png'
+    'https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png',
+    'https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png',
+    'https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_0.png',
+    'https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_1.png',
+    'https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_2.png'
 ];
 
 // 로컬 스토리지에서 이미지 인덱스를 가져오거나, 없으면 빈 객체로 초기화
@@ -178,9 +178,9 @@ function calculateDamage() {
     // 최종공격력 계산
 let finalAtk = Decimal.max(0,
     atk.mul(Decimal.add(1, atkBnsPer.mul(0.01)))
-      .add(opCrg.mul(Decimal.add(1, crgBns.mul(0.01))))
-      .mul(Decimal.add(1, atkBy.mul(0.01)))
-      .mul(Decimal.add(1, dmgBy.mul(0.01)))
+      .add(opCrg.mul(crgBns.mul(0.01)))
+      .mul(Math.max(1,atkBy.mul(0.01)))
+      .mul(Math.max(1,dmgBy.mul(0.01)))
   );
   
   // 최종 방어력 계산
@@ -201,7 +201,7 @@ let finalAtk = Decimal.max(0,
       .mul(Decimal.sub(1, mgDefMnsPer3.mul(0.01)))
       .minus(mgDefIg)
   );
-  console.log(`finalMgDef: ${finalMgDef.toString()}`);
+
   // 최종 데미지 계산
   let damage = finalAtk;
   
@@ -248,18 +248,12 @@ let finalAtk = Decimal.max(0,
     }
   }
 
-    console.log('calculateDamage 함수 실행됨');
-    console.log('계산된 finalDamage:', finalDamage.toString());
-
     const label = document.querySelector('.result-group .result');
-
     if (label) {
         label.innerHTML = `결과값 : ${finalDamage.toFixed(2)}`;
-        console.log('결과값이 업데이트됨:', label.innerHTML);
     } else {
         console.error('결과를 표시할 요소를 찾을 수 없습니다.');
     }
-    
 }
 
 const debouncedDmgcal = debounce(calculateDamage, 100);
