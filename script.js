@@ -201,7 +201,7 @@ let finalAtk = Decimal.max(0,
       .mul(Decimal.sub(1, mgDefMnsPer3.mul(0.01)))
       .minus(mgDefIg)
   );
-  console.log(`finalMgDef: ${finalMgDef.toString()}`);
+
   // 최종 데미지 계산
   let damage = finalAtk;
   
@@ -247,11 +247,6 @@ let finalAtk = Decimal.max(0,
       );
     }
   }
-
-    console.log('calculateDamage 함수 실행됨');
-    console.log('계산된 finalDamage:', finalDamage.toString());
-
-    const label = document.querySelector('.result-group .result');
 
     if (label) {
         label.innerHTML = `결과값 : ${finalDamage.toFixed(2)}`;
