@@ -207,7 +207,7 @@ let finalAtk = Decimal.max(0,
   
   if (defType === 'physic') {
     damage = Decimal.max(0, finalAtk.minus(finalDef));
-    if (damage.greaterThanOrEqualTo(finalAtk.mul(0.05))) {
+    if (damage.greaterThan(finalAtk.mul(0.05))) {
       finalDamage = Decimal.max(0, 
         finalAtk.minus(finalDef)
           .mul(Decimal.add(1, skilldmgBns.mul(0.01)))
@@ -227,7 +227,7 @@ let finalAtk = Decimal.max(0,
     damage = Decimal.max(0, finalAtk.mul(Decimal.sub(1, finalMgDef.mul(0.01))));  
 
     //씨발왜안됨
-    if (damage.greaterThanOrEqualTo(finalAtk.mul(0.05))) {
+    if (damage.greaterThan(finalAtk.mul(0.05))) {
       finalDamage = Decimal.max(0, 
         finalAtk
           .mul(Decimal.sub(1, finalMgDef.mul(0.01)))
@@ -290,14 +290,6 @@ window.addEventListener('load', function() {
         const rangeInput = group.querySelector('.range-input');
         if (numberInput && rangeInput) {
             syncInputs(numberInput, rangeInput);
-        }
-
-        // 모든 입력 요소에 이벤트 리스너 추가
-        if (numberInput) {
-            numberInput.addEventListener('input', debouncedDmgcal);
-        }
-        if (rangeInput) {
-            rangeInput.addEventListener('input', debouncedDmgcal);
         }
     });
     
