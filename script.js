@@ -178,7 +178,7 @@ function calculateDamage() {
     // 최종공격력 계산
 let finalAtk = Decimal.max(0,
     atk.mul(Decimal.add(1, atkBnsPer.mul(0.01)))
-      .add(opCrg.mul(Decimal.add(1, crgBns.mul(0.01))))
+      .add(opCrg.mul(Decimal.sub(1, crgBns.mul(0.01))))
       .mul(Decimal.add(1, atkBy.mul(0.01)))
       .mul(Decimal.add(1, dmgBy.mul(0.01)))
   );
