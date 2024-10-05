@@ -25,11 +25,11 @@ function openTab(evt, tabName) {
 
 
 const overlayImages = [
-    'https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png',
-    'https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png',
-    'https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_0.png',
-    'https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_1.png',
-    'https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_2.png'
+    'https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png',
+    'https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png',
+    'https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_0.png',
+    'https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_1.png',
+    'https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_2.png'
 ];
 
 // 로컬 스토리지에서 이미지 인덱스를 가져오거나, 없으면 빈 객체로 초기화
