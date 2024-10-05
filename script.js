@@ -249,7 +249,6 @@ let finalAtk = Decimal.max(0,
   }
 
     const label = document.querySelector('.result-group .result');
-
     if (label) {
         label.innerHTML = `결과값 : ${finalDamage.toFixed(2)}`;
     } else {
