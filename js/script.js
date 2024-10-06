@@ -134,8 +134,78 @@ function searchOperators() {
 
 
 
+const phyButton = document.getElementById('physical');
+const mgButton = document.getElementById('magical');
+const groupAItems = document.querySelectorAll('.group-a');
+const groupBItems = document.querySelectorAll('.group-b');
+const debuffGroupAItems = document.querySelectorAll('.grid-debuff .group-a');
+const debuffGroupBItems = document.querySelectorAll('.grid-debuff .group-b');
 
+// 물리(phy) 버튼을 클릭했을 때
+phyButton.addEventListener('click', () => {
+    // 기존 group-a 처리
+    groupAItems.forEach((item, index) => {
+        item.style.display = 'block';
+        item.style.borderBottom = index < groupAItems.length - 9 ? '1px solid #A4A4A4' : 'none';
+    });
+    groupBItems.forEach(item => {
+        item.style.display = 'none';
+        item.style.borderBottom = 'none';
+    });
+    
+    // grid-debuff의 group-a 처리
+    debuffGroupAItems.forEach((item, index) => {
+        item.style.display = 'block';
+        item.style.borderBottom = index < debuffGroupAItems.length - 2 ? '1px solid #A4A4A4' : 'none';
+    });
+    debuffGroupBItems.forEach(item => {
+        item.style.display = 'none';
+        item.style.borderBottom = 'none';
+    });
+});
 
+// 마법(mg) 버튼을 클릭했을 때
+mgButton.addEventListener('click', () => {
+    // 기존 group-b 처리
+    groupBItems.forEach((item, index) => {
+        item.style.display = 'block';
+        item.style.borderBottom = index < groupBItems.length - 8 ? '1px solid #A4A4A4' : 'none';
+    });
+    groupAItems.forEach(item => {
+        item.style.display = 'none';
+        item.style.borderBottom = 'none';
+    });
+
+    // grid-debuff의 group-b 처리
+    debuffGroupBItems.forEach((item, index) => {
+        item.style.display = 'block';
+        item.style.borderBottom = index < debuffGroupBItems.length - 1 ? '1px solid #A4A4A4' : 'none';
+    });
+    debuffGroupAItems.forEach(item => {
+        item.style.display = 'none';
+        item.style.borderBottom = 'none';
+    });
+});
+
+// 페이지 로드 시 phyButton 로직 실행
+window.onload = () => {
+    phyButton.click(); // 페이지 로드 시 phyButton 클릭 로직 실행
+};
+
+// increment와 decrement 함수 정의
+function increment(button) {
+    const input = button.previousElementSibling;
+    if (input.value < parseInt(input.max)) {
+        input.value = parseInt(input.value) + 1;
+    }
+}
+
+function decrement(button) {
+    const input = button.nextElementSibling;
+    if (input.value > parseInt(input.min)) {
+        input.value = parseInt(input.value) - 1;
+    }
+}
 
 
 

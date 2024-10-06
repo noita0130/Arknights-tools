@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/cal.css">
     <title>명일방주 도구</title>
 
 </head>
@@ -522,58 +521,11 @@
     <div id="tab2" class="tab-content active">
         <div class="baseGrid">
             <div class="base-column1">
-                <p class="cal-subtitle">아군 능력치</p>
-                <div class="allyStat">
-                    <div>
-                        <div class="inputStat">
-                            <label>기초공</label>
-                            <div class="input-number">
-                                <button onclick="decrement(this)">-</button>
-                                <input type="number" class="number-input" id="" value="0" min="0" max="100" >
-                                <button onclick="increment(this)">+</button>
-                            </div>   
-                        </div>
-                        <input type="range" class="range-input" min="0" max="100" value="0">
-                    </div>
-                    <div>
-                        <div class="inputStat">
-                            <label>공 %+</label>
-                            <div class="input-number">
-                                <button onclick="decrement(this)">-</button>
-                                <input type="number" class="number-input" id="" value="0" min="0" max="100" >
-                                <button onclick="increment(this)">+</button>
-                            </div>   
-                        </div>
-                        <input type="range" class="range-input" min="0" max="100" value="0">
-                    </div>
-                    <div>
-                        <div class="inputStat">
-                            <label>공 까지증가</label>
-                            <div class="input-number">
-                                <button onclick="decrement(this)">-</button>
-                                <input type="number" class="number-input" id="" value="0" min="0" max="100" >
-                                <button onclick="increment(this)">+</button>
-                            </div>   
-                        </div>
-                        <input type="range" class="range-input" min="0" max="100" value="0">
-                    </div>
-                    <div>
-                        <div class="inputStat">
-                            <label>스킬 계수</label>
-                            <div class="input-number">
-                                <button onclick="decrement(this)">-</button>
-                                <input type="number" class="number-input" id="" value="0" min="0" max="100" >
-                                <button onclick="increment(this)">+</button>
-                            </div>   
-                        </div>
-                        <input type="range" class="range-input" min="0" max="100" value="0">
-                    </div>
-                </div>
                 <p class="cal-subtitle">아군 버프</p>
                 <div class="allyBuff">
-                    <div>
-                        <div class="inputStat">
-                            <label>공 %+</label>
+                    <div class="inputStat">
+                        <div>
+                            <label>공 +%</label>
                             <div class="input-number">
                                 <button onclick="decrement(this)">-</button>
                                 <input type="number" class="number-input" id="" value="0" min="0" max="100" >
@@ -582,8 +534,8 @@
                         </div>
                         <input type="range" class="range-input" min="0" max="100" value="0">
                     </div>
-                    <div>
-                        <div class="inputStat">
+                    <div class="inputStat">
+                        <div>
                             <label>음유시인 공격력</label>
                             <div class="input-number">
                                 <button onclick="decrement(this)">-</button>
@@ -593,9 +545,9 @@
                         </div>
                         <input type="range" class="range-input" min="0" max="100" value="0">
                     </div>
-                    <div>
-                        <div class="inputStat">
-                            <label>격려 공%</label>
+                    <div class="inputStat">
+                        <div>
+                            <label>음유시인 공 +%</label>
                             <div class="input-number">
                                 <button onclick="decrement(this)">-</button>
                                 <input type="number" class="number-input" id="" value="0" min="0" max="100" >
@@ -604,9 +556,9 @@
                         </div>
                         <input type="range" class="range-input" min="0" max="100" value="0">
                     </div>
-                    <div>
-                        <div class="inputStat">
-                            <label></label>
+                    <div class="inputStat">
+                        <div>
+                            <label>격려 %</label>
                             <div class="input-number">
                                 <button onclick="decrement(this)">-</button>
                                 <input type="number" class="number-input" id="" value="0" min="0" max="100" >
@@ -618,130 +570,144 @@
                 </div>
             </div>
             <div class="base-column2">
-                <p class="cal-subtitle">적 방어도</p>
-                <div class="grid-enemyStat">
-                    <div class="phyDef">
-                        <div>
-                            <label>방어력</label>
-                            <div class="input-number">
-                                <button onclick="decrement(this)">-</button>
-                                <input type="number" class="number-input" id="" value="0" min="0" max="100" >
-                                <button onclick="increment(this)">+</button>
-                            </div>   
-                        </div>
-                        <input type="range" class="range-input" min="0" max="100" value="0">
-                    </div>
-                    <div class="grid-row">
-                        <div class="phyDefBuff">
-                            <div>
-                                <label>방어력 버프 %</label>
-                                <div class="input-number">
-                                    <button onclick="decrement(this)">-</button>
-                                    <input type="number" class="number-input" id="" value="0" min="0" max="100" >
-                                    <button onclick="increment(this)">+</button>
-                                </div>   
+                <div class="grid-subcolumn">
+                    <div>
+                        <p class="cal-subtitle">아군 능력치</p>
+                        <div class="allyStat">
+                            <div class="inputStat">
+                                <div>
+                                    <label>기초공</label>
+                                    <div class="input-number">
+                                        <button onclick="decrement(this)">-</button>
+                                        <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                        <button onclick="increment(this)">+</button>
+                                    </div>   
+                                </div>
+                                <input type="range" class="range-input" min="0" max="100" value="0">
                             </div>
-                            <input type="range" class="range-input" min="0" max="100" value="0">
-                        </div>
-                        <div class="phyDefPlus">
-                            <div >
-                                <label>방어력 고정 증가치</label>
-                                <div class="input-number">
-                                    <button onclick="decrement(this)">-</button>
-                                    <input type="number" class="number-input" id="" value="0" min="0" max="100" >
-                                    <button onclick="increment(this)">+</button>
-                                </div>   
+                            <div class="inputStat ">
+                                <div>
+                                    <label>공 +%</label>
+                                    <div class="input-number">
+                                        <button onclick="decrement(this)">-</button>
+                                        <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                        <button onclick="increment(this)">+</button>
+                                    </div>   
+                                </div>
+                                <input type="range" class="range-input" min="0" max="100" value="0">
                             </div>
-                            <input type="range" class="range-input" min="0" max="100" value="0">
-                        </div>
-                        <div class="phyDmgMinus">
-                            <div >
-                                <label>물리피해감소</label>
-                                <div class="input-number">
-                                    <button onclick="decrement(this)">-</button>
-                                    <input type="number" class="number-input" id="" value="0" min="0" max="100" >
-                                    <button onclick="increment(this)">+</button>
-                                </div>   
+                            <div class="inputStat">
+                                <div>
+                                    <label>공 %까지</label>
+                                    <div class="input-number">
+                                        <button onclick="decrement(this)">-</button>
+                                        <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                        <button onclick="increment(this)">+</button>
+                                    </div>   
+                                </div>
+                                <input type="range" class="range-input" min="0" max="100" value="0">
                             </div>
-                            <input type="range" class="range-input" min="0" max="100" value="0">
+                            <div class="inputStat">
+                                <div>
+                                    <label>스킬계수 %</label>
+                                    <div class="input-number">
+                                        <button onclick="decrement(this)">-</button>
+                                        <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                        <button onclick="increment(this)">+</button>
+                                    </div>   
+                                </div>
+                                <input type="range" class="range-input" min="0" max="100" value="0">
+                            </div>
                         </div>
                     </div>
-                    <div class="mgDef">
-                        <div>
-                            <label>마법저항</label>
-                            <div class="input-number">
-                                <button onclick="decrement(this)">-</button>
-                                <input type="number" class="number-input" id="" value="0" min="0" max="100" >
-                                <button onclick="increment(this)">+</button>
-                            </div>   
+                    <div>
+                        <p class="cal-subtitle">적 방어도</p>
+                        <div class="grid-enemyStat">
+                            <div class="inputStat group-a">
+                                <div>
+                                    <label>방어력</label>
+                                    <div class="input-number">
+                                        <button onclick="decrement(this)">-</button>
+                                        <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                        <button onclick="increment(this)">+</button>
+                                    </div>   
+                                </div>
+                                <input type="range" class="range-input" min="0" max="100" value="0">
+                            </div>
+                            <div class="inputStat group-a">
+                                <div>
+                                    <label>방어력 +%</label>
+                                    <div class="input-number">
+                                        <button onclick="decrement(this)">-</button>
+                                        <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                        <button onclick="increment(this)">+</button>
+                                    </div>   
+                                </div>
+                                <input type="range" class="range-input" min="0" max="100" value="0">
+                            </div>
+                            <div class="inputStat group-a">
+                                <div>
+                                    <label>방어력 +n</label>
+                                    <div class="input-number">
+                                        <button onclick="decrement(this)">-</button>
+                                        <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                        <button onclick="increment(this)">+</button>
+                                    </div>   
+                                </div>
+                                <input type="range" class="range-input" min="0" max="100" value="0">
+                            </div>
+                            <div class="inputStat group-a">
+                                <div >
+                                    <label>물리피해감소</label>
+                                    <div class="input-number">
+                                        <button onclick="decrement(this)">-</button>
+                                        <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                        <button onclick="increment(this)">+</button>
+                                    </div>   
+                                </div>
+                                <input type="range" class="range-input" min="0" max="100" value="0">
+                            </div>
+                            <div class="inputStat group-b">
+                                <div>
+                                    <label>마법저항</label>
+                                    <div class="input-number">
+                                        <button onclick="decrement(this)">-</button>
+                                        <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                        <button onclick="increment(this)">+</button>
+                                    </div>   
+                                </div>
+                                <input type="range" class="range-input" min="0" max="100" value="0">
+                            </div>
+                            <div class="inputStat group-b">
+                                <div>
+                                    <label>마항증가</label>
+                                    <div class="input-number">
+                                        <button onclick="decrement(this)">-</button>
+                                        <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                        <button onclick="increment(this)">+</button>
+                                    </div>   
+                                </div>
+                                <input type="range" class="range-input" min="0" max="100" value="0">
+                            </div>
+                            <div class="inputStat group-b">
+                                <div>
+                                    <label>마법피해감소</label>
+                                    <div class="input-number">
+                                        <button onclick="decrement(this)">-</button>
+                                        <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                        <button onclick="increment(this)">+</button>
+                                    </div>   
+                                </div>
+                                <input type="range" class="range-input" min="0" max="100" value="0">
+                            </div>
                         </div>
-                        <input type="range" class="range-input" min="0" max="100" value="0">
-                    </div>
-                    <div class="mgDefPlus">
-                        <div>
-                            <label>마항증가</label>
-                            <div class="input-number">
-                                <button onclick="decrement(this)">-</button>
-                                <input type="number" class="number-input" id="" value="0" min="0" max="100" >
-                                <button onclick="increment(this)">+</button>
-                            </div>   
-                        </div>
-                        <input type="range" class="range-input" min="0" max="100" value="0">
-                    </div>
-                    <div class="mgDmgMinus">
-                        <div>
-                            <label>마법피해감소</label>
-                            <div class="input-number">
-                                <button onclick="decrement(this)">-</button>
-                                <input type="number" class="number-input" id="" value="0" min="0" max="100" >
-                                <button onclick="increment(this)">+</button>
-                            </div>   
-                        </div>
-                        <input type="range" class="range-input" min="0" max="100" value="0">
                     </div>
                 </div>
                 <p class="cal-subtitle">적 디버프</p>
                 <div class="grid-debuff">
-                        <div class="grid-row">
-                            <div class="redDef1">
-                                <div>
-                                <label>방깎% 1</label>
-                                    <div class="input-number">
-                                        <button onclick="decrement(this)">-</button>
-                                        <input type="number" class="number-input" id="" value="0" min="0" max="100" >
-                                        <button onclick="increment(this)">+</button>
-                                    </div>   
-                                </div>
-                                <input type="range" class="range-input" min="0" max="100" value="0">
-                            </div>
-                            <div class="redDef2">
-                                <div>
-                                    <label>방깎% 2</label>
-                                    <div class="input-number">
-                                        <button onclick="decrement(this)">-</button>
-                                        <input type="number" class="number-input" id="" value="0" min="0" max="100" >
-                                        <button onclick="increment(this)">+</button>
-                                    </div>   
-                                </div>
-                                <input type="range" class="range-input" min="0" max="100" value="0">
-                            </div>
-                            <div class="redDef3">
-                                <div>
-                                    <label>방깎% 3</label>
-                                    <div class="input-number">
-                                        <button onclick="decrement(this)">-</button>
-                                        <input type="number" class="number-input" id="" value="0" min="0" max="100" >
-                                        <button onclick="increment(this)">+</button>
-                                    </div>   
-                                </div>
-                                <input type="range" class="range-input" min="0" max="100" value="0">
-                            </div>
-
-                        </div>
-                        
-                    <div>
-                        <div class="PhyDmgMinus">
-                            <label>물리피해감소</label>
+                    <div class="inputStat group-a">
+                        <div>
+                        <label>방깎% 1</label>
                             <div class="input-number">
                                 <button onclick="decrement(this)">-</button>
                                 <input type="number" class="number-input" id="" value="0" min="0" max="100" >
@@ -750,9 +716,9 @@
                         </div>
                         <input type="range" class="range-input" min="0" max="100" value="0">
                     </div>
-                    <div>
-                        <div class="inputStat">
-                            <label>마법저항</label>
+                    <div class="inputStat group-a">
+                        <div>
+                            <label>방무%</label>
                             <div class="input-number">
                                 <button onclick="decrement(this)">-</button>
                                 <input type="number" class="number-input" id="" value="0" min="0" max="100" >
@@ -761,9 +727,9 @@
                         </div>
                         <input type="range" class="range-input" min="0" max="100" value="0">
                     </div>
-                    <div>
-                        <div class="inputStat">
-                            <label>마항증가</label>
+                    <div class="inputStat group-a">
+                        <div>
+                            <label>방깎% 2</label>
                             <div class="input-number">
                                 <button onclick="decrement(this)">-</button>
                                 <input type="number" class="number-input" id="" value="0" min="0" max="100" >
@@ -772,9 +738,123 @@
                         </div>
                         <input type="range" class="range-input" min="0" max="100" value="0">
                     </div>
-                    <div>
-                        <div class="inputStat">
-                            <label>마법피해감소</label>
+                    <div class="inputStat group-a">
+                        <div>
+                            <label>방무 n</label>
+                            <div class="input-number">
+                                <button onclick="decrement(this)">-</button>
+                                <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                <button onclick="increment(this)">+</button>
+                            </div>   
+                        </div>
+                        <input type="range" class="range-input" min="0" max="100" value="0">
+                    </div>
+                    <div class="inputStat group-a">
+                        <div>
+                            <label>방깎% 3</label>
+                            <div class="input-number">
+                                <button onclick="decrement(this)">-</button>
+                                <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                <button onclick="increment(this)">+</button>
+                            </div>   
+                        </div>
+                        <input type="range" class="range-input" min="0" max="100" value="0">
+                    </div>
+                    <div class="inputStat group-a">
+                        <div>
+                            <label>물리피증</label>
+                            <div class="input-number">
+                                <button onclick="decrement(this)">-</button>
+                                <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                <button onclick="increment(this)">+</button>
+                            </div>   
+                        </div>
+                        <input type="range" class="range-input" min="0" max="100" value="0">
+                    </div>
+                    <div class="inputStat group-a">
+                        <div>
+                            <label>방깎 n</label>
+                            <div class="input-number">
+                                <button onclick="decrement(this)">-</button>
+                                <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                <button onclick="increment(this)">+</button>
+                            </div>   
+                        </div>
+                        <input type="range" class="range-input" min="0" max="100" value="0">
+                    </div>
+                    <div class="inputStat group-a">
+                        <div>
+                        </div>
+                    </div>
+                    <div class="inputStat group-b">
+                        <div>
+                        <label>마항깎% 1</label>
+                            <div class="input-number">
+                                <button onclick="decrement(this)">-</button>
+                                <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                <button onclick="increment(this)">+</button>
+                            </div>   
+                        </div>
+                        <input type="range" class="range-input" min="0" max="100" value="0">
+                    </div>
+                    <div class="inputStat group-b">
+                        <div>
+                            <label>마항무시 n</label>
+                            <div class="input-number">
+                                <button onclick="decrement(this)">-</button>
+                                <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                <button onclick="increment(this)">+</button>
+                            </div>   
+                        </div>
+                        <input type="range" class="range-input" min="0" max="100" value="0">
+                    </div>
+                    <div class="inputStat group-b">
+                        <div>
+                            <label>마항깎% 2</label>
+                            <div class="input-number">
+                                <button onclick="decrement(this)">-</button>
+                                <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                <button onclick="increment(this)">+</button>
+                            </div>   
+                        </div>
+                        <input type="range" class="range-input" min="0" max="100" value="0">
+                    </div>
+                    <div class="inputStat group-b">
+                        <div>
+                            <label>마법취약 %</label>
+                            <div class="input-number">
+                                <button onclick="decrement(this)">-</button>
+                                <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                <button onclick="increment(this)">+</button>
+                            </div>   
+                        </div>
+                        <input type="range" class="range-input" min="0" max="100" value="0">
+                    </div>
+                    <div class="inputStat group-b">
+                        <div>
+                            <label>마항깎% 3</label>
+                            <div class="input-number">
+                                <button onclick="decrement(this)">-</button>
+                                <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                <button onclick="increment(this)">+</button>
+                            </div>   
+                        </div>
+                        <input type="range" class="range-input" min="0" max="100" value="0">
+                    </div>
+                    <div class="inputStat group-b">
+                        <div>
+                            <label>마법피증</label>
+                            <div class="input-number">
+                                <button onclick="decrement(this)">-</button>
+                                <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                <button onclick="increment(this)">+</button>
+                            </div>   
+                        </div>
+                        <input type="range" class="range-input" min="0" max="100" value="0">
+                    </div>
+                    <div class="inputStat group-b">
+                        <div>
+                            <label>마항깎 n</label>
                             <div class="input-number">
                                 <button onclick="decrement(this)">-</button>
                                 <input type="number" class="number-input" id="" value="0" min="0" max="100" >
@@ -788,17 +868,11 @@
         
             <div class="base-column3">
                 <div class="radioGroup">
-   
-                    <input type="radio" name="def" id="physical">
+                    <input type="radio" name="defDisplay" id="physical" value="phy" checked>
                     <label for="physical" class="customButton">물리방어</label>
 
-
-
-                    <input type="radio" name="def" id="magical">
+                    <input type="radio" name="defDisplay" id="magical" value="mg">
                     <label for="magical" class="customButton">마법방어</label>
-
-                    
-
                 </div>
                 
                 
