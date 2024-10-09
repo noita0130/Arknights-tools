@@ -520,52 +520,85 @@
     
     <div id="tab2" class="tab-content active">
         <div class="baseGrid">
-            <div class="base-column1">
-                <p class="cal-subtitle">아군 버프</p>
-                <div class="allyBuff">
-                    <div class="inputStat">
-                        <div>
-                            <label>공 +%</label>
-                            <div class="input-number">
-                                <button onclick="decrement(this)">-</button>
-                                <input type="number" class="number-input" id="" value="0" min="0" max="100" >
-                                <button onclick="increment(this)">+</button>
-                            </div>   
+            <div  class="base-column1">
+                <div class="base-column1-1">
+                    <p class="cal-subtitle">아군 버프</p>
+                    <div class="allyBuff">
+                        <div class="inputStat">
+                            <div>
+                                <label>공 +%</label>
+                                <div class="input-number">
+                                    <button onclick="decrement(this)">-</button>
+                                    <input type="number" class="number-input" id="" value="0" min="0" max="300" >
+                                    <button onclick="increment(this)">+</button>
+                                </div>   
+                            </div>
+                            <input type="range" class="range-input" id="atkPerBnsAlly" min="0" max="300" value="0">
                         </div>
-                        <input type="range" class="range-input" min="0" max="100" value="0">
+                        <div class="inputStat">
+                            <div>
+                                <label>음유시인 공격력</label>
+                                <div class="input-number">
+                                    <button onclick="decrement(this)">-</button>
+                                    <input type="number" class="number-input" id="" value="0" min="0" max="1000" >
+                                    <button onclick="increment(this)">+</button>
+                                </div>   
+                            </div>
+                            <input type="range" class="range-input" id="atkCrg" min="0" max="1000" value="0">
+                        </div>
+                        <div class="inputStat">
+                            <div>
+                                <label>음유시인 공 +%</label>
+                                <div class="input-number">
+                                    <button onclick="decrement(this)">-</button>
+                                    <input type="number" class="number-input" id="" value="0" min="0" max="200" >
+                                    <button onclick="increment(this)">+</button>
+                                </div>   
+                            </div>
+                            <input type="range" class="range-input" id="atkCrgBns" min="0" max="200" value="0">
+                        </div>
+                        <div class="inputStat">
+                            <div>
+                                <label>격려 %</label>
+                                <div class="input-number">
+                                    <button onclick="decrement(this)">-</button>
+                                    <input type="number" class="number-input" id="" value="0" min="0" max="200" >
+                                    <button onclick="increment(this)">+</button>
+                                </div>   
+                            </div>
+                            <input type="range" class="range-input" id="couragePer" min="0" max="200" value="0">
+                        </div>
                     </div>
-                    <div class="inputStat">
-                        <div>
-                            <label>음유시인 공격력</label>
-                            <div class="input-number">
-                                <button onclick="decrement(this)">-</button>
-                                <input type="number" class="number-input" id="" value="0" min="0" max="100" >
-                                <button onclick="increment(this)">+</button>
-                            </div>   
+                    <p class="cal-subtitle">아군 디버프</p>
+                    <div class="allyDebuff">
+                        <div class="inputStat">
+                            <div>
+                                <label>공 -%</label>
+                                <div class="input-number">
+                                    <button onclick="decrement(this)">-</button>
+                                    <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                    <button onclick="increment(this)">+</button>
+                                </div>   
+                            </div>
+                            <input type="range" class="range-input" id="atkPerMnsAlly" min="0" max="100" value="0">
                         </div>
-                        <input type="range" class="range-input" min="0" max="100" value="0">
+                        <div class="inputStat">
+                            <div>
+                                <label>공 -n</label>
+                                <div class="input-number">
+                                    <button onclick="decrement(this)">-</button>
+                                    <input type="number" class="number-input" id="" value="0" min="0" max="500" >
+                                    <button onclick="increment(this)">+</button>
+                                </div>   
+                            </div>
+                            <input type="range" class="range-input" id="atkMnsAlly" min="0" max="500" value="0">
+                        </div>
                     </div>
-                    <div class="inputStat">
-                        <div>
-                            <label>음유시인 공 +%</label>
-                            <div class="input-number">
-                                <button onclick="decrement(this)">-</button>
-                                <input type="number" class="number-input" id="" value="0" min="0" max="100" >
-                                <button onclick="increment(this)">+</button>
-                            </div>   
-                        </div>
-                        <input type="range" class="range-input" min="0" max="100" value="0">
-                    </div>
-                    <div class="inputStat">
-                        <div>
-                            <label>격려 %</label>
-                            <div class="input-number">
-                                <button onclick="decrement(this)">-</button>
-                                <input type="number" class="number-input" id="" value="0" min="0" max="100" >
-                                <button onclick="increment(this)">+</button>
-                            </div>   
-                        </div>
-                        <input type="range" class="range-input" min="0" max="100" value="0">
+                </div>
+                <div class="base-column1-2">
+                    <div class="result">
+                        <div class="result-title">결과값</div>
+                        <div class="result-number">N/A</div>
                     </div>
                 </div>
             </div>
@@ -576,47 +609,47 @@
                         <div class="allyStat">
                             <div class="inputStat">
                                 <div>
-                                    <label>기초공</label>
+                                    <label>기초공격력</label>
                                     <div class="input-number">
                                         <button onclick="decrement(this)">-</button>
-                                        <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                        <input type="number" class="number-input" id="" value="0" min="0" max="2000" >
                                         <button onclick="increment(this)">+</button>
                                     </div>   
                                 </div>
-                                <input type="range" class="range-input" min="0" max="100" value="0">
+                                <input type="range" class="range-input" id="baseAtk" min="0" max="2000" value="0">
                             </div>
-                            <div class="inputStat ">
+                            <div class="inputStat">
                                 <div>
                                     <label>공 +%</label>
                                     <div class="input-number">
                                         <button onclick="decrement(this)">-</button>
-                                        <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                        <input type="number" class="number-input" id="" value="0" min="0" max="500" >
                                         <button onclick="increment(this)">+</button>
                                     </div>   
                                 </div>
-                                <input type="range" class="range-input" min="0" max="100" value="0">
+                                <input type="range" class="range-input" id="atkPerBns" min="0" max="500" value="0">
                             </div>
                             <div class="inputStat">
                                 <div>
                                     <label>공 %까지</label>
                                     <div class="input-number">
                                         <button onclick="decrement(this)">-</button>
-                                        <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                        <input type="number" class="number-input" id="" value="0" min="0" max="200" >
                                         <button onclick="increment(this)">+</button>
                                     </div>   
                                 </div>
-                                <input type="range" class="range-input" min="0" max="100" value="0">
+                                <input type="range" class="range-input" id="atkPerBy" min="0" max="200" value="0">
                             </div>
                             <div class="inputStat">
                                 <div>
                                     <label>스킬계수 %</label>
                                     <div class="input-number">
                                         <button onclick="decrement(this)">-</button>
-                                        <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                        <input type="number" class="number-input" id="" value="0" min="0" max="500" >
                                         <button onclick="increment(this)">+</button>
                                     </div>   
                                 </div>
-                                <input type="range" class="range-input" min="0" max="100" value="0">
+                                <input type="range" class="range-input" id="skillDmg" min="0" max="500" value="0">
                             </div>
                         </div>
                     </div>
@@ -628,44 +661,44 @@
                                     <label>방어력</label>
                                     <div class="input-number">
                                         <button onclick="decrement(this)">-</button>
-                                        <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                        <input type="number" class="number-input" id="" value="0" min="0" max="6000" >
                                         <button onclick="increment(this)">+</button>
                                     </div>   
                                 </div>
-                                <input type="range" class="range-input" min="0" max="100" value="0">
+                                <input type="range" class="range-input" id="phyDef" min="0" max="6000" value="0">
                             </div>
                             <div class="inputStat group-a">
                                 <div>
                                     <label>방어력 +%</label>
                                     <div class="input-number">
                                         <button onclick="decrement(this)">-</button>
-                                        <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                        <input type="number" class="number-input" id="" value="0" min="0" max="200" >
                                         <button onclick="increment(this)">+</button>
                                     </div>   
                                 </div>
-                                <input type="range" class="range-input" min="0" max="100" value="0">
+                                <input type="range" class="range-input" id="phyDefPerBns" min="0" max="200" value="0">
                             </div>
                             <div class="inputStat group-a">
                                 <div>
                                     <label>방어력 +n</label>
                                     <div class="input-number">
                                         <button onclick="decrement(this)">-</button>
-                                        <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                        <input type="number" class="number-input" id="" value="0" min="0" max="500" >
                                         <button onclick="increment(this)">+</button>
                                     </div>   
                                 </div>
-                                <input type="range" class="range-input" min="0" max="100" value="0">
+                                <input type="range" class="range-input" id="phyDefBns" min="0" max="500" value="0">
                             </div>
                             <div class="inputStat group-a">
                                 <div >
-                                    <label>물리피해감소</label>
+                                    <label>물리피해감소%</label>
                                     <div class="input-number">
                                         <button onclick="decrement(this)">-</button>
                                         <input type="number" class="number-input" id="" value="0" min="0" max="100" >
                                         <button onclick="increment(this)">+</button>
                                     </div>   
                                 </div>
-                                <input type="range" class="range-input" min="0" max="100" value="0">
+                                <input type="range" class="range-input" id="phyDmgRdc" min="0" max="100" value="0">
                             </div>
                             <div class="inputStat group-b">
                                 <div>
@@ -676,7 +709,7 @@
                                         <button onclick="increment(this)">+</button>
                                     </div>   
                                 </div>
-                                <input type="range" class="range-input" min="0" max="100" value="0">
+                                <input type="range" class="range-input" id="mgDef" min="0" max="100" value="0">
                             </div>
                             <div class="inputStat group-b">
                                 <div>
@@ -687,18 +720,18 @@
                                         <button onclick="increment(this)">+</button>
                                     </div>   
                                 </div>
-                                <input type="range" class="range-input" min="0" max="100" value="0">
+                                <input type="range" class="range-input" id="mgDefBns" min="0" max="100" value="0">
                             </div>
                             <div class="inputStat group-b">
                                 <div>
-                                    <label>마법피해감소</label>
+                                    <label>마법피해감소%</label>
                                     <div class="input-number">
                                         <button onclick="decrement(this)">-</button>
                                         <input type="number" class="number-input" id="" value="0" min="0" max="100" >
                                         <button onclick="increment(this)">+</button>
                                     </div>   
                                 </div>
-                                <input type="range" class="range-input" min="0" max="100" value="0">
+                                <input type="range" class="range-input" id="mgDmgRdc" min="0" max="100" value="0">
                             </div>
                         </div>
                     </div>
@@ -714,7 +747,7 @@
                                 <button onclick="increment(this)">+</button>
                             </div>   
                         </div>
-                        <input type="range" class="range-input" min="0" max="100" value="0">
+                        <input type="range" class="range-input" id="phyDefRdcPer1" min="0" max="100" value="0">
                     </div>
                     <div class="inputStat group-a">
                         <div>
@@ -725,7 +758,7 @@
                                 <button onclick="increment(this)">+</button>
                             </div>   
                         </div>
-                        <input type="range" class="range-input" min="0" max="100" value="0">
+                        <input type="range" class="range-input" id="phyDefIgPer" min="0" max="100" value="0">
                     </div>
                     <div class="inputStat group-a">
                         <div>
@@ -736,18 +769,18 @@
                                 <button onclick="increment(this)">+</button>
                             </div>   
                         </div>
-                        <input type="range" class="range-input" min="0" max="100" value="0">
+                        <input type="range" class="range-input" id="phyDefRdcPer2" min="0" max="100" value="0">
                     </div>
                     <div class="inputStat group-a">
                         <div>
                             <label>방무 n</label>
                             <div class="input-number">
                                 <button onclick="decrement(this)">-</button>
-                                <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                <input type="number" class="number-input" id="" value="0" min="0" max="1000" >
                                 <button onclick="increment(this)">+</button>
                             </div>   
                         </div>
-                        <input type="range" class="range-input" min="0" max="100" value="0">
+                        <input type="range" class="range-input" id="phyDefIg" min="0" max="1000" value="0">
                     </div>
                     <div class="inputStat group-a">
                         <div>
@@ -758,33 +791,29 @@
                                 <button onclick="increment(this)">+</button>
                             </div>   
                         </div>
-                        <input type="range" class="range-input" min="0" max="100" value="0">
+                        <input type="range" class="range-input" id="phyDefRdcPer3" min="0" max="100" value="0">
                     </div>
                     <div class="inputStat group-a">
                         <div>
-                            <label>물리피증</label>
+                            <label>물리피증%</label>
                             <div class="input-number">
                                 <button onclick="decrement(this)">-</button>
                                 <input type="number" class="number-input" id="" value="0" min="0" max="100" >
                                 <button onclick="increment(this)">+</button>
                             </div>   
                         </div>
-                        <input type="range" class="range-input" min="0" max="100" value="0">
+                        <input type="range" class="range-input" id="phyDmgInc" min="0" max="100" value="0">
                     </div>
                     <div class="inputStat group-a">
                         <div>
                             <label>방깎 n</label>
                             <div class="input-number">
                                 <button onclick="decrement(this)">-</button>
-                                <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                <input type="number" class="number-input" id="" value="0" min="0" max="1000" >
                                 <button onclick="increment(this)">+</button>
                             </div>   
                         </div>
-                        <input type="range" class="range-input" min="0" max="100" value="0">
-                    </div>
-                    <div class="inputStat group-a">
-                        <div>
-                        </div>
+                        <input type="range" class="range-input" id="phyDefRdc" min="0" max="1000" value="0">
                     </div>
                     <div class="inputStat group-b">
                         <div>
@@ -795,7 +824,7 @@
                                 <button onclick="increment(this)">+</button>
                             </div>   
                         </div>
-                        <input type="range" class="range-input" min="0" max="100" value="0">
+                        <input type="range" class="range-input" id="mgDefRdcPer1" min="0" max="100" value="0">
                     </div>
                     <div class="inputStat group-b">
                         <div>
@@ -806,7 +835,7 @@
                                 <button onclick="increment(this)">+</button>
                             </div>   
                         </div>
-                        <input type="range" class="range-input" min="0" max="100" value="0">
+                        <input type="range" class="range-input" id="mgDefIg" min="0" max="100" value="0">
                     </div>
                     <div class="inputStat group-b">
                         <div>
@@ -817,7 +846,7 @@
                                 <button onclick="increment(this)">+</button>
                             </div>   
                         </div>
-                        <input type="range" class="range-input" min="0" max="100" value="0">
+                        <input type="range" class="range-input" id="mgDefRdcPer2" min="0" max="100" value="0">
                     </div>
                     <div class="inputStat group-b">
                         <div>
@@ -828,7 +857,7 @@
                                 <button onclick="increment(this)">+</button>
                             </div>   
                         </div>
-                        <input type="range" class="range-input" min="0" max="100" value="0">
+                        <input type="range" class="range-input" id="mgDmgWeak" min="0" max="100" value="0">
                     </div>
                     <div class="inputStat group-b">
                         <div>
@@ -839,18 +868,18 @@
                                 <button onclick="increment(this)">+</button>
                             </div>   
                         </div>
-                        <input type="range" class="range-input" min="0" max="100" value="0">
+                        <input type="range" class="range-input" id="mgDefRdcPer3" min="0" max="100" value="0">
                     </div>
                     <div class="inputStat group-b">
                         <div>
-                            <label>마법피증</label>
+                            <label>마법피증%</label>
                             <div class="input-number">
                                 <button onclick="decrement(this)">-</button>
                                 <input type="number" class="number-input" id="" value="0" min="0" max="100" >
                                 <button onclick="increment(this)">+</button>
                             </div>   
                         </div>
-                        <input type="range" class="range-input" min="0" max="100" value="0">
+                        <input type="range" class="range-input" id="mgDmgInc" min="0" max="100" value="0">
                     </div>
                     <div class="inputStat group-b">
                         <div>
@@ -861,7 +890,18 @@
                                 <button onclick="increment(this)">+</button>
                             </div>   
                         </div>
-                        <input type="range" class="range-input" min="0" max="100" value="0">
+                        <input type="range" class="range-input" id="mgDefRdc" min="0" max="100" value="0">
+                    </div>
+                    <div class="inputStat">
+                        <div>
+                            <label>취약%</label>
+                            <div class="input-number">
+                                <button onclick="decrement(this)">-</button>
+                                <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                <button onclick="increment(this)">+</button>
+                            </div>   
+                        </div>
+                        <input type="range" class="range-input" id="dmgWeak" min="0" max="100" value="0">
                     </div>
                 </div>
             </div>
@@ -869,10 +909,20 @@
             <div class="base-column3">
                 <div class="radioGroup">
                     <input type="radio" name="defDisplay" id="physical" value="phy" checked>
-                    <label for="physical" class="customButton">물리방어</label>
+                    <label for="physical" class="customButton">
+                        <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/phy_black.png">
+                        <div>물리방어</div>
+                    </label>
 
                     <input type="radio" name="defDisplay" id="magical" value="mg">
-                    <label for="magical" class="customButton">마법방어</label>
+                    <label for="magical" class="customButton">
+                        <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/mg_black.png" alt="">
+                        <div>마법방어</div>
+                    </label>
+                </div>
+                <div class="resetGroup">
+                        <input type="button" name="resetInput">
+                        <label class="resetLabel" for="resetInput"><font color="red">초기화</font></label>
                 </div>
                 
                 

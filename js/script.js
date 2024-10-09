@@ -146,7 +146,7 @@ phyButton.addEventListener('click', () => {
     // 기존 group-a 처리
     groupAItems.forEach((item, index) => {
         item.style.display = 'block';
-        item.style.borderBottom = index < groupAItems.length - 9 ? '1px solid #A4A4A4' : 'none';
+        item.style.borderBottom = index < groupAItems.length - 8 ? '1px solid #A4A4A4' : 'none';
     });
     groupBItems.forEach(item => {
         item.style.display = 'none';
@@ -156,7 +156,7 @@ phyButton.addEventListener('click', () => {
     // grid-debuff의 group-a 처리
     debuffGroupAItems.forEach((item, index) => {
         item.style.display = 'block';
-        item.style.borderBottom = index < debuffGroupAItems.length - 2 ? '1px solid #A4A4A4' : 'none';
+        item.style.borderBottom = index < debuffGroupAItems.length - 1 ? '1px solid #A4A4A4' : 'none';
     });
     debuffGroupBItems.forEach(item => {
         item.style.display = 'none';
@@ -192,20 +192,75 @@ window.onload = () => {
     phyButton.click(); // 페이지 로드 시 phyButton 클릭 로직 실행
 };
 
-// increment와 decrement 함수 정의
+function updateRangeBackground(slider) {
+    const min = slider.min;
+    const max = slider.max;
+    const value = slider.value;
+    const percentage = ((value - min) / (max - min)) * 100;
+    slider.style.background = `linear-gradient(to right, rgb(45, 45, 45) 0%, rgb(45, 45, 45) ${percentage}%, #DEE2E6 ${percentage}%, #DEE2E6 100%)`;
+}
+
+function setupRangeInputs() {
+    const rangeInputs = document.querySelectorAll('.range-input');
+    rangeInputs.forEach(slider => {
+        updateRangeBackground(slider);
+
+        slider.oninput = function() {
+            window.requestAnimationFrame(() => {
+                updateRangeBackground(this);
+            });
+
+            // 연결된 number input 업데이트
+            const numberInput = this.parentElement.querySelector('.number-input');
+            if (numberInput) {
+                window.requestAnimationFrame(() => {
+                    numberInput.value = this.value;
+                });
+            }
+        };
+    });
+}
+
 function increment(button) {
-    const input = button.previousElementSibling;
+    const input = button.parentElement.querySelector('.number-input');
+    const rangeInput = button.parentElement.parentElement.parentElement.querySelector('.range-input');
     if (input.value < parseInt(input.max)) {
         input.value = parseInt(input.value) + 1;
+        rangeInput.value = input.value;
+        updateRangeBackground(rangeInput);
     }
 }
 
 function decrement(button) {
-    const input = button.nextElementSibling;
+    const input = button.parentElement.querySelector('.number-input');
+    const rangeInput = button.parentElement.parentElement.parentElement.querySelector('.range-input');
     if (input.value > parseInt(input.min)) {
         input.value = parseInt(input.value) - 1;
+        rangeInput.value = input.value;
+        updateRangeBackground(rangeInput);
     }
 }
+
+// 페이지 로드 시 실행
+document.addEventListener('DOMContentLoaded', setupRangeInputs);
+
+document.getElementById('resetButton').addEventListener('click', function() {
+    // 모든 number-input과 range-input을 선택
+    const numberInputs = document.querySelectorAll('.number-input');
+    const rangeInputs = document.querySelectorAll('.range-input');
+
+    // number-input 초기화
+    numberInputs.forEach(input => {
+        input.value = 0;
+        input.dispatchEvent(new Event('change')); // change 이벤트 발생
+    });
+
+    // range-input 초기화
+    rangeInputs.forEach(input => {
+        input.value = 0;
+    });
+});
+
 
 
 
