@@ -210,10 +210,8 @@ function debounce(func, wait) {
     };
 }
 
-function MinMax(min, max, input) {
-    return Math.min(Math.max(min, input), max);
-}
-
+// 디바운스된 계산 함수
+const debouncedCalculate = debounce(calculate, 300);
 
 // 계산 함수 (예시)
 function calculate() {
@@ -377,7 +375,6 @@ function increment(button) {
     }
 }
 
-// 감소 함수
 function decrement(button) {
     const input = button.parentElement.querySelector('.number-input');
     const rangeInput = button.parentElement.parentElement.parentElement.querySelector('.range-input');
@@ -479,8 +476,7 @@ function syncInputsAndCalculate() {
 }
 
 
-// 디바운스된 계산 함수
-const debouncedCalculate = debounce(calculate, 300);
+//리셋함수 추가하기
 
 // 페이지 로드 시 실행
 document.addEventListener('DOMContentLoaded', function() {
@@ -489,45 +485,31 @@ document.addEventListener('DOMContentLoaded', function() {
     // 초기 range 배경 설정
     const ranges = document.querySelectorAll('input[type="range"]');
     ranges.forEach(updateRangeBackground);
+
 });
+
+document.querySelector('.resetLabel').addEventListener('click', function() {
+    document.getElementById('resetInput').click();
+});
+
+document.getElementById('resetInput').addEventListener('click', resetInputs);
 
 function resetInputs() {
-    const tab2 = document.getElementById('tab2');
-    const numberInputs = tab2.querySelectorAll('.number-input');
-    const rangeInputs = tab2.querySelectorAll('.range-input');
-
-    // number-input과 range-input 초기화
-    numberInputs.forEach((input, index) => {
-        input.value = input.min || '0';
-        const rangeInput = rangeInputs[index];
-        if (rangeInput) {
-            rangeInput.value = input.value;
-            updateRangeBackground(rangeInput);
-        }
-    });
-
-    // 계산 함수 호출
-    debouncedCalculate();
-}
-
-// 페이지 로드 시 실행
-document.addEventListener('DOMContentLoaded', function() {
-    syncInputsAndCalculate();
+    // 모든 number 타입과 range 타입 input 요소를 가져옵니다
+    const numberInputs = document.querySelectorAll('input[type="number"]');
+    const rangeInputs = document.querySelectorAll('input[type="range"]');
     
-    // 초기 range 배경 설정
-    const ranges = document.querySelectorAll('input[type="range"]');
-    ranges.forEach(updateRangeBackground);
-
-    // 리셋 버튼에 이벤트 리스너 추가
-    const resetButton = document.querySelector('.resetGroup input[name="resetInput"]');
-    if (resetButton) {
-        resetButton.addEventListener('click', resetInputs);
-    } else {
-        console.error('Reset button not found');
-    }
-});
-
-
+    // number input 요소들을 초기값으로 설정
+    numberInputs.forEach(input => {
+        input.value = input.defaultValue;
+    });
+    
+    // range input 요소들을 초기값으로 설정 및 슬라이더 배경 업데이트
+    rangeInputs.forEach(input => {
+        input.value = input.defaultValue;
+        updateRangeBackground(input);  // 슬라이더 배경 업데이트
+    });
+}
 
 
 

@@ -416,10 +416,6 @@
     transition: background-color 0.3s ease;
 }
 
-.resetLabel {
-    pointer-events: none;
-}
-
 .customButton {
     padding: 10px 20px;
     background-color: #ddd;
