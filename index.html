@@ -3,554 +3,932 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>탭 메뉴 예시</title>
-    <link rel="stylesheet" href="styles.css">
+    
+    <link rel="stylesheet" href="css/styles.css">
+    <title>명일방주 도구</title>
+
 </head>
 <body>
 
     <!-- 탭 메뉴 -->
     <div class="tab-menu">
-        <a class="active" onclick="openTab(event, 'tab1')">보유 오퍼레이터</a>
+        <a onclick="openTab(event, 'tab1')">오퍼 체크리스트</a>
         <a onclick="openTab(event, 'tab2')">데미지 계산기</a>
         <a onclick="openTab(event, 'tab3')">제작중</a>
     </div>
 
     <!-- 탭 컨텐츠 -->
-    <div id="tab1" class="tab-content active">
+    <div id="tab1" class="tab-content">
         <h1><font color="white">오퍼레이터 목록</font></h1>
-        <input type="text" id="searchInput" placeholder="오퍼레이터 검색..." oninput="searchOperators()">
-        <button onclick="setImagesIndex(0)">초기화</button>
-        <button onclick="setImagesIndex(1)">전체없음표시</button>
-        <button onclick="setImagesIndex(3)">전체1정표시</button>
-        <button onclick="setImagesIndex(4)">전체2정표시</button>
+        <div>
+            <input type="text" id="searchInput" placeholder="오퍼레이터 검색..." oninput="searchOperators()">
+            <button onclick="setImagesIndex(0)">초기화</button>
+            <button onclick="setImagesIndex(1)">전체없음표시</button>
+            <button onclick="setImagesIndex(3)">전체1정표시</button>
+            <button onclick="setImagesIndex(4)">전체2정표시</button>
+        </div>
+        
 
         <!-- 이미지 리스트 -->
+        <!-- 핑댕이 (링 피아메타 사이)
+            루멘 (아이린 이전)
+            테레시아 (로고스 위샤델사이) 없음
+            이격 시즈 추가하기-->
         <ul class="image-list" id="operatorList">
             <li data-name="엑시아 쑤씨아이">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Exusiai_icon.png" alt="엑시아" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Exusiai_icon.png" alt="엑시아" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>엑시아</span>
             </li>
             <li data-name="시즈 쇠파이프">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Siege_icon.png" alt="시즈" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Siege_icon.png" alt="시즈" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>시즈</span>
             </li>
             <li data-name="이프리트">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Ifrit_icon.png" alt="이프리트" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Ifrit_icon.png" alt="이프리트" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>이프리트</span>
             </li>
             <li data-name="에이야퍄들라">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Eyjafjalla_icon.png" alt="에이야퍄들라" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Eyjafjalla_icon.png" alt="에이야퍄들라" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span class="mid">에이야퍄들라</span>
             </li>
             <li data-name="안젤리나">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Angelina_icon.png" alt="안젤리나" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Angelina_icon.png" alt="안젤리나" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>안젤리나</span>
             </li>
             <li data-name="샤이닝">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Shining_icon.png" alt="샤이닝" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Shining_icon.png" alt="샤이닝" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>샤이닝</span>
             </li>
             <li data-name="나이팅게일">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Nightingale_icon.png" alt="나이팅게일" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Nightingale_icon.png" alt="나이팅게일" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>나이팅게일</span>
             </li>
             <li data-name="호시구마 호구마">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Hoshiguma_icon.png" alt="호시구마" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Hoshiguma_icon.png" alt="호시구마" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>호시구마</span>
             </li>
             <li data-name="사리아">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Saria_icon.png" alt="사리아" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Saria_icon.png" alt="사리아" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>사리아</span>
             </li>
             <li data-name="실버애쉬 은재",>
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/SilverAsh_icon.png" alt="실버애쉬" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/SilverAsh_icon.png" alt="실버애쉬" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>실버애쉬</span>
             </li>
             <li data-name="스카디 산갈">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Skadi_icon.png" alt="스카디" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Skadi_icon.png" alt="스카디" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>스카디</span>
             </li>
             <li data-name="첸">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Ch'en_icon.png" alt="첸" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Ch'en_icon.png" alt="첸" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>첸</span>
             </li>
             <li data-name="마젤란">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Magallan_icon.png" alt="마젤란" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Magallan_icon.png" alt="마젤란" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>마젤란</span>
             </li>
             <li data-name="헬라그">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Hellagur_icon.png" alt="헬라그" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Hellagur_icon.png" alt="헬라그" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>헬라그</span>
             </li>
             <li data-name="슈바르츠 흑금">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Schwarz_icon.png" alt="슈바르츠" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Schwarz_icon.png" alt="슈바르츠" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>슈바르츠</span>
             </li>
             <li data-name="모스티마 모황 무슴">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Mostima_icon.png" alt="모스티마" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Mostima_icon.png" alt="모스티마" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>모스티마</span>
             </li>
             <li data-name="블레이즈 호무라">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Blaze_icon.png" alt="블레이즈" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Blaze_icon.png" alt="블레이즈" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>블레이즈</span>
             </li>
             <li data-name="아">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Aak_icon.png" alt="아" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Aak_icon.png" alt="아" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>아</span>
             </li>
             <li data-name="니엔">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Nian_icon.png" alt="니엔" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Nian_icon.png" alt="니엔" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>니엔</span>
             </li>
             <li data-name="케오베 케짱">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Ceobe_icon.png" alt="케오베" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Ceobe_icon.png" alt="케오베" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>케오베</span>
             </li>
             <li data-name="백파이프">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Bagpipe_icon.png" alt="백파이프" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Bagpipe_icon.png" alt="백파이프" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>백파이프</span>
             </li>
             <li data-name="로사">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Rosa_icon.png" alt="로사" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Rosa_icon.png" alt="로사" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>로사</span>
             </li>
             <li data-name="스즈란">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Suzuran_icon.png" alt="스즈란" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Suzuran_icon.png" alt="스즈란" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>스즈란</span>
             </li>
             <li data-name="팬텀">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Phantom_icon.png" alt="팬텀" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Phantom_icon.png" alt="팬텀" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>팬텀</span>
             </li>
             <li data-name="위디">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Weedy_icon.png" alt="위디" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Weedy_icon.png" alt="위디" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>위디</span>
             </li>
             <li data-name="W">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/W_icon.png" alt="W" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/W_icon.png" alt="W" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>W</span>
             </li>
             <li data-name="쏜즈">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Thorns_icon.png" alt="쏜즈" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Thorns_icon.png" alt="쏜즈" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>쏜즈</span>
             </li>
             <li data-name="유넥티스">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Eunectes_icon.png" alt="유넥티스" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Eunectes_icon.png" alt="유넥티스" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>유넥티스</span>
             </li>
             <li data-name="수르트">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Surtr_icon.png" alt="수르트" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Surtr_icon.png" alt="수르트" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>수르트</span>
             </li>
             <li data-name="블레미샤인">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Blemishine_icon.png" alt="블레미샤인" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Blemishine_icon.png" alt="블레미샤인" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>블레미샤인</span>
             </li>
             <li data-name="머드락 꺼드락">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Mudrock_icon.png" alt="머드락" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Mudrock_icon.png" alt="머드락" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>머드락</span>
             </li>
             <li data-name="로즈몬티스 쪽냥이">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Rosmontis_icon.png" alt="로즈몬티스" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Rosmontis_icon.png" alt="로즈몬티스" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>로즈몬티스</span>
             </li>
             <li data-name="마운틴 산">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Mountain_icon.png" alt="마운틴" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Mountain_icon.png" alt="마운틴" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>마운틴</span>
             </li>
             <li data-name="아르케토 알게또">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Archetto_icon.png" alt="아르케토" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Archetto_icon.png" alt="아르케토" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>아르케토</span>
             </li>
             <li data-name="사가 땡중">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Saga_icon.png" alt="사가" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Saga_icon.png" alt="사가" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>사가</span>
             </li>
             <li data-name="시 석">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Dusk_icon.png" alt="시" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Dusk_icon.png" alt="시" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>시</span>
             </li>
             <li data-name="Ash 애쉬">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Ash_icon.png" alt="애쉬" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Ash_icon.png" alt="애쉬" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>Ash</span>
             </li>
             <li data-name="패신저 뇌신">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Passenger_icon.png" alt="패신저" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Passenger_icon.png" alt="패신저" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>패신저</span>
             </li>
             <li data-name="켈시 카짓 녹단또">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Kal'tsit_icon.png" alt="켈시" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Kal'tsit_icon.png" alt="켈시" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>켈시</span>
             </li>
             <li data-name="스카디 더 커럽팅하트 보카디 서카디">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Skadi_the_Corrupting_Heart_icon.png" alt="스카디 더 커럽팅 하트" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Skadi_the_Corrupting_Heart_icon.png" alt="스카디 더 커럽팅 하트" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span class="long">스카디 더<br>커럽팅 하트</span>
             </li>
             <li data-name="글래디아 청새치">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Gladiia_icon.png" alt="글래디아" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Gladiia_icon.png" alt="글래디아" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>글래디아</span>
             </li>
             <li data-name="카넬리안">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Carnelian_icon.png" alt="카넬리안" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Carnelian_icon.png" alt="카넬리안" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>카넬리안</span>
             </li>
             <li data-name="팔라스 괄라스">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Pallas_icon.png" alt="팔라스" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Pallas_icon.png" alt="팔라스" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>팔라스</span>
             </li>
             <li data-name="미즈키 보추">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Mizuki_icon.png" alt="미즈키" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Mizuki_icon.png" alt="미즈키" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>미즈키</span>
             </li>
             <li data-name="첸 더 홀룽데이 수첸">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Ch'en_the_Holungday_icon.png" alt="첸 더 홀룽데이" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Ch'en_the_Holungday_icon.png" alt="첸 더 홀룽데이" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span class="mid">첸 더<br>홀룽데이</span>
             </li>
             <li data-name="사일라흐 젖틀">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Saileach_icon.png" alt="사일라흐" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Saileach_icon.png" alt="사일라흐" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>사일라흐</span>
             </li>
             <li data-name="파투스">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Fartooth_icon.png" alt="파투스" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Fartooth_icon.png" alt="파투스" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>파투스</span>
             </li>
             <li data-name="플레임테일 불꼬리">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Flametail_icon.png" alt="플레임테일" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Flametail_icon.png" alt="플레임테일" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>플레임테일</span>
             </li>
             <li data-name="니어 더 래디언트 나이트 창니어 가니어">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Nearl_the_Radiant_Knight_icon.png" alt="니어 더 래디언트 나이트" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Nearl_the_Radiant_Knight_icon.png" alt="니어 더 래디언트 나이트" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span class="long">니어 더<br>래디언트 나이트</span>
             </li>
             <li data-name="노시스 빙신">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Gnosis_icon.png" alt="노시스" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Gnosis_icon.png" alt="노시스" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>노시스</span>
             </li>
             <li data-name="리">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Lee_icon.png" alt="리" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Lee_icon.png" alt="리" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>리</span>
             </li>
             <li data-name="링">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Ling_icon.png" alt="링" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Ling_icon.png" alt="링" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>링</span>
             </li>
             <li data-name="피아메타">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Fiammetta_icon.png" alt="피아메타" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Fiammetta_icon.png" alt="피아메타" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>피아메타</span>
             </li>
             <li data-name="혼 리타">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Horn_icon.png" alt="혼" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Horn_icon.png" alt="혼" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>혼</span>
             </li>
             <li data-name="아이린 삐약이">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Irene_icon.png" alt="아이린" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Irene_icon.png" alt="아이린" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>아이린</span>
             </li>
             <li data-name="스펙터 디 언체인드 언펙터">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Specter_the_Unchained_icon.png" alt="언펙터" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Specter_the_Unchained_icon.png" alt="언펙터" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span class="long">스펙터<br>디 언체인드</span>
             </li>
             <li data-name="에벤홀츠 흑건">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Ebenholz_icon.png" alt="흑건" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Ebenholz_icon.png" alt="흑건" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>에벤홀츠</span>
             </li>
             <li data-name="파죰카 홍설">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Pozëmka_icon.png" alt="파죰카" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Pozëmka_icon.png" alt="파죰카" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>파죰카</span>
             </li>
             <li data-name="가비알 더 인빈서블 수비알">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Gavial_the_Invincible_icon.png" alt="수비알" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Gavial_the_Invincible_icon.png" alt="수비알" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span class="long">가비알<br>더 인빈서블</span>
             </li>
             <li data-name="도로시 도황">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Dorothy_icon.png" alt="도로시" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Dorothy_icon.png" alt="도로시" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>도로시</span>
             </li>
             <li data-name="무에나">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Młynar_icon.png" alt="무에나" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Młynar_icon.png" alt="무에나" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>무에나</span>
             </li>
             <li data-name="스테인리스 스뎅 스댕">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Stainless_icon.png" alt="스테인리스" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Stainless_icon.png" alt="스테인리스" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>스테인리스</span>
             </li>
             <li data-name="페넌스 판사님">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Penance_icon.png" alt="페넌스" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Penance_icon.png" alt="페넌스" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>페넌스</span>
             </li>
             <li data-name="텍사스 디 오메르토사 특사스">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Texas_the_Omertosa_icon.png" alt="특사스" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Texas_the_Omertosa_icon.png" alt="특사스" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span class="long">텍사스<br>디 오메르토사</span>
             </li>
             <li data-name="비질">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Vigil_icon.png" alt="비질" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Vigil_icon.png" alt="비질" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>비질</span>
             </li>
             <li data-name="리드 더 플레임 섀도우 힐리드">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Reed_the_Flame_Shadow_icon.png" alt="힐리드" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Reed_the_Flame_Shadow_icon.png" alt="힐리드" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span class="long">리드 더<br>플레임 섀도우</span>
             </li>
             <li data-name="린">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Lin_icon.png" alt="린" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Lin_icon.png" alt="린" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>린</span>
             </li>
             <li data-name="총웨 그긴거">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Chongyue_icon.png" alt="총웨" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Chongyue_icon.png" alt="총웨" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>총웨</span>
             </li>
             <li data-name="치우바이 구백">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Qiubai_icon.png" alt="치우바이" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Qiubai_icon.png" alt="치우바이" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>치우바이</span>
             </li>
             <li data-name="키린 R 야토 특토">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Kirin_R_Yato_icon.png" alt="특토" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Kirin_R_Yato_icon.png" alt="특토" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span class="mid">키린 R 야토</span>
             </li>
             <li data-name="이네스 그긴거">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Ines_icon.png" alt="이네스" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Ines_icon.png" alt="이네스" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>이네스</span>
             </li>
             <li data-name="오올헤약 오곡헤응">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Ho'olheyak_icon.png" alt="오올헤약" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Ho'olheyak_icon.png" alt="오올헤약" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>오올헤약</span>
             </li>
             <li data-name="뮤엘시스 뮤뮤">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Muelsyse_icon.png" alt="뮤엘시스" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Muelsyse_icon.png" alt="뮤엘시스" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>뮤엘시스</span>
             </li>
             <li data-name="사일런스 더 패러디그매틱">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Silence_the_Paradigmatic_icon.png" alt="이격사일" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Silence_the_Paradigmatic_icon.png" alt="이격사일" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span class="long">사일런스<br>더 패러디그매틱</span>
             </li>
             <li data-name="이그제큐터 디 엑스 포에데레 익게이 십게이">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Executor_the_Ex_Foedere_icon.png" alt="익게이" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Executor_the_Ex_Foedere_icon.png" alt="익게이" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span class="long">이그제큐터<br>디 엑스 포에데레</span>
             </li>
             <li data-name="스와이어 디 엘리건트 위트 수와이어">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Swire_the_Elegant_Wit_icon.png" alt="수와이어" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Swire_the_Elegant_Wit_icon.png" alt="수와이어" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span class="long">스와이어<br>디 엘리건트 위트</span>
             </li>
             <li data-name="에이야퍄들라 더 크비트 아스카 힐이야">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Eyjafjalla_the_Hvít_Aska_icon.png" alt="힐이야" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Eyjafjalla_the_Hvít_Aska_icon.png" alt="힐이야" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span class="long">에이야퍄들라<br>더 크비트 아스카</span>
             </li>
             <li data-name="티폰">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Typhon_icon.png" alt="티폰" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Typhon_icon.png" alt="티폰" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>티폰</span>
             </li>
             <li data-name="제시카 더 리버레이티드 빵시카">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Jessica_the_Liberated_icon.png" alt="빵시카" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Jessica_the_Liberated_icon.png" alt="빵시카" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span class="long">제시카<br>더 리버레이티드</span>
             </li>
             <li data-name="외드레르 외붕이">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Hoederer_icon.png" alt="외드레르" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Hoederer_icon.png" alt="외드레르" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>외드레르</span>
             </li>
             <li data-name="비비안나 양초기사">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Viviana_icon.png" alt="비비안나" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Viviana_icon.png" alt="비비안나" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>비비안나</span>
             </li>
             <li data-name="비르투오사 분탕 아르투리아">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Virtuosa_icon.png" alt="비르투오사" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Virtuosa_icon.png" alt="비르투오사" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>비르투오사</span>
             </li>
             <li data-name="레싱">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Lessing_icon.png" alt="레싱" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Lessing_icon.png" alt="레싱" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>레싱</span>
             </li>
             <li data-name="데겐블레허 닭장">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Degenbrecher_icon.png" alt="데겐블레허" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Degenbrecher_icon.png" alt="데겐블레허" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>데겐블레허</span>
             </li>
             <li data-name="레이">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Ray_icon.png" alt="레이" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Ray_icon.png" alt="레이" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>레이</span>
             </li>
             <li data-name="좌락">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Zuo_Le_icon.png" alt="좌락" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Zuo_Le_icon.png" alt="좌락" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>좌락</span>
             </li>
             <li data-name="슈">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Shu_icon.png" alt="슈" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Shu_icon.png" alt="슈" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>슈</span>
             </li>
             <li data-name="Ela 엘라">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Ela_icon.png" alt="엘라" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Ela_icon.png" alt="엘라" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>Ela</span>
             </li>
             <li data-name="아스카론">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Ascalon_icon.png" alt="아스카론" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Ascalon_icon.png" alt="아스카론" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>아스카론</span>
             </li>
             <li data-name="로고스">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Logos_icon.png" alt="로고스" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Logos_icon.png" alt="로고스" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>로고스</span>
             </li>
             <li data-name="위샤델 그긴거">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Wiš'adel_icon.png" alt="위샤델" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Wiš'adel_icon.png" alt="위샤델" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>위샤델</span>
             </li>
             <li data-name="울피안 울피아누스">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Ulpianus_icon.png" alt="울피안" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Ulpianus_icon.png" alt="울피안" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>울피안</span>
             </li>
             <li data-name="님프 바리바리 무샤무샤">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Nymph_icon.png" alt="님프" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Nymph_icon.png" alt="님프" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>님프</span>
             </li>
             <li data-name="나란투야">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Narantuya_icon.png" alt="나란투야" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Narantuya_icon.png" alt="나란투야" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>나란투야</span>
             </li>
             <li data-name="페페">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Pepe_icon.png" alt="페페" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Pepe_icon.png" alt="페페" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>페페</span>
             </li>
             <li data-name="마르실">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/avatar/Marcille_icon.png" alt="마르실" onclick="overlayImage(this)">
-                <img src="https://raw.githubusercontent.com/k132h243/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Marcille_icon.png" alt="마르실" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>마르실</span>
             </li>
         </ul>
     </div>
     
-    <div id="tab2" class="tab-content">
-        <div class="calculator">
-            <h2>데미지 계산기</h2>
-            <div class="input-group">
-                <label>
-                    <input type="radio" id="physic" name="guard" oninput=""> 물리방어
-                    <input type="radio" id="magic" name="guard" oninput=""> 마법방어
-                </label>
-            </div>
-            <div class="input-group">
-                <div>
-                    <button>+</button>
+    <div id="tab2" class="tab-content active">
+        <div class="baseGrid">
+            <div  class="base-column1">
+                <div class="base-column1-1">
+                    <p class="cal-subtitle">아군 버프</p>
+                    <div class="allyBuff">
+                        <div class="inputStat">
+                            <div>
+                                <label>공 +%</label>
+                                <div class="input-number">
+                                    <button onclick="decrement(this)">-</button>
+                                    <input type="number" class="number-input" id="" value="0" min="0" max="300" >
+                                    <button onclick="increment(this)">+</button>
+                                </div>   
+                            </div>
+                            <input type="range" class="range-input" id="atkPerBnsAlly" min="0" max="300" value="0">
+                        </div>
+                        <div class="inputStat">
+                            <div>
+                                <label>음유시인 공격력</label>
+                                <div class="input-number">
+                                    <button onclick="decrement(this)">-</button>
+                                    <input type="number" class="number-input" id="" value="0" min="0" max="1000" >
+                                    <button onclick="increment(this)">+</button>
+                                </div>   
+                            </div>
+                            <input type="range" class="range-input" id="atkCrg" min="0" max="1000" value="0">
+                        </div>
+                        <div class="inputStat">
+                            <div>
+                                <label>음유시인 공 +%</label>
+                                <div class="input-number">
+                                    <button onclick="decrement(this)">-</button>
+                                    <input type="number" class="number-input" id="" value="0" min="0" max="200" >
+                                    <button onclick="increment(this)">+</button>
+                                </div>   
+                            </div>
+                            <input type="range" class="range-input" id="atkCrgBns" min="0" max="200" value="0">
+                        </div>
+                        <div class="inputStat">
+                            <div>
+                                <label>격려 %</label>
+                                <div class="input-number">
+                                    <button onclick="decrement(this)">-</button>
+                                    <input type="number" class="number-input" id="" value="0" min="0" max="200" >
+                                    <button onclick="increment(this)">+</button>
+                                </div>   
+                            </div>
+                            <input type="range" class="range-input" id="couragePer" min="0" max="200" value="0">
+                        </div>
+                    </div>
+                    <p class="cal-subtitle">아군 디버프 (WIP)</p>
+                    <div class="allyDebuff">
+                        <div class="inputStat">
+                            <div>
+                                <label>아군 공 -%</label>
+                                <div class="input-number">
+                                    <button onclick="decrement(this)">-</button>
+                                    <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                    <button onclick="increment(this)">+</button>
+                                </div>   
+                            </div>
+                            <input type="range" class="range-input" id="atkPerMnsAlly" min="0" max="100" value="0">
+                        </div>
+                    </div>
                 </div>
-                    <input type="number" class="no-spinner" id="baseAtk" placeholder="기초공(신뢰도포함)" oninput="">
+                <div class="base-column1-2">
+                    <div class="result">
+                        <div class="result-title">결과값</div>
+                        <div class="result-number">0</div>
+                    </div>
+                </div>
             </div>
-            <div class="input-group">
-                <input type="number" class="no-spinner" id="atkBonus" placeholder="추가 공격력%의 합" oninput="">
+            <div class="base-column2">
+                <div class="grid-subcolumn">
+                    <div>
+                        <p class="cal-subtitle">아군 스탯</p>
+                        <div class="allyStat">
+                            <div class="inputStat">
+                                <div>
+                                    <label>기초공격력</label>
+                                    <div class="input-number">
+                                        <button onclick="decrement(this)">-</button>
+                                        <input type="number" class="number-input" id="" value="0" min="0" max="2000" >
+                                        <button onclick="increment(this)">+</button>
+                                    </div>   
+                                </div>
+                                <input type="range" class="range-input" id="baseAtk" min="0" max="2000" value="0">
+                            </div>
+                            <div class="inputStat">
+                                <div>
+                                    <label>공 +%</label>
+                                    <div class="input-number">
+                                        <button onclick="decrement(this)">-</button>
+                                        <input type="number" class="number-input" id="" value="0" min="0" max="500" >
+                                        <button onclick="increment(this)">+</button>
+                                    </div>   
+                                </div>
+                                <input type="range" class="range-input" id="atkPerBns" min="0" max="500" value="0">
+                            </div>
+                            <div class="inputStat">
+                                <div>
+                                    <label>공 %까지</label>
+                                    <div class="input-number">
+                                        <button onclick="decrement(this)">-</button>
+                                        <input type="number" class="number-input" id="" value="100" min="0" max="400" >
+                                        <button onclick="increment(this)">+</button>
+                                    </div>   
+                                </div>
+                                <input type="range" class="range-input" id="atkPerBy" min="100" max="400" value="0">
+                            </div>
+                            <div class="inputStat">
+                                <div>
+                                    <label>스킬계수 %</label>
+                                    <div class="input-number">
+                                        <button onclick="decrement(this)">-</button>
+                                        <input type="number" class="number-input" id="" value="100" min="0" max="500" >
+                                        <button onclick="increment(this)">+</button>
+                                    </div>   
+                                </div>
+                                <input type="range" class="range-input" id="skillDmg" min="0" max="500" value="100">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="cal-subtitle">적 스탯</p>
+                        <div class="grid-enemyStat">
+                            <div class="inputStat group-a">
+                                <div>
+                                    <label>방어력</label>
+                                    <div class="input-number">
+                                        <button onclick="decrement(this)">-</button>
+                                        <input type="number" class="number-input" id="" value="0" min="0" max="6000" >
+                                        <button onclick="increment(this)">+</button>
+                                    </div>   
+                                </div>
+                                <input type="range" class="range-input" id="phyDef" min="0" max="6000" value="0">
+                            </div>
+                            <div class="inputStat group-a">
+                                <div>
+                                    <label>방어력 +%</label>
+                                    <div class="input-number">
+                                        <button onclick="decrement(this)">-</button>
+                                        <input type="number" class="number-input" id="" value="0" min="0" max="200" >
+                                        <button onclick="increment(this)">+</button>
+                                    </div>   
+                                </div>
+                                <input type="range" class="range-input" id="phyDefPerBns" min="0" max="200" value="0">
+                            </div>
+                            <div class="inputStat group-a">
+                                <div>
+                                    <label>방어력 +n</label>
+                                    <div class="input-number">
+                                        <button onclick="decrement(this)">-</button>
+                                        <input type="number" class="number-input" id="" value="0" min="0" max="500" >
+                                        <button onclick="increment(this)">+</button>
+                                    </div>   
+                                </div>
+                                <input type="range" class="range-input" id="phyDefBns" min="0" max="500" value="0">
+                            </div>
+                            <div class="inputStat group-a" style="border-bottom: none;">
+                                <div>
+                                    <label>물리피해감소%</label>
+                                    <div class="input-number">
+                                        <button onclick="decrement(this)">-</button>
+                                        <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                        <button onclick="increment(this)">+</button>
+                                    </div>   
+                                </div>
+                                <input type="range" class="range-input" id="phyDmgRdc" min="0" max="100" value="0">
+                            </div>
+                            <div class="inputStat group-b">
+                                <div>
+                                    <label>마법저항</label>
+                                    <div class="input-number">
+                                        <button onclick="decrement(this)">-</button>
+                                        <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                        <button onclick="increment(this)">+</button>
+                                    </div>   
+                                </div>
+                                <input type="range" class="range-input" id="mgDef" min="0" max="100" value="0">
+                            </div>
+                            <div class="inputStat group-b">
+                                <div>
+                                    <label>마항 +n</label>
+                                    <div class="input-number">
+                                        <button onclick="decrement(this)">-</button>
+                                        <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                        <button onclick="increment(this)">+</button>
+                                    </div>   
+                                </div>
+                                <input type="range" class="range-input" id="mgDefBns" min="0" max="100" value="0">
+                            </div>
+                            <div class="inputStat group-b">
+                                <div>
+                                    <label>마법피해감소%</label>
+                                    <div class="input-number">
+                                        <button onclick="decrement(this)">-</button>
+                                        <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                        <button onclick="increment(this)">+</button>
+                                    </div>   
+                                </div>
+                                <input type="range" class="range-input" id="mgDmgRdc" min="0" max="100" value="0">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="cal-subtitle">적 디버프</p>
+                <div class="grid-debuff">
+                    <div class="inputStat group-a">
+                        <div>
+                        <label>방깎% 1</label>
+                            <div class="input-number">
+                                <button onclick="decrement(this)">-</button>
+                                <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                <button onclick="increment(this)">+</button>
+                            </div>   
+                        </div>
+                        <input type="range" class="range-input" id="phyDefRdcPer1" min="0" max="100" value="0">
+                    </div>
+                    <div class="inputStat group-a">
+                        <div>
+                            <label>방무%</label>
+                            <div class="input-number">
+                                <button onclick="decrement(this)">-</button>
+                                <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                <button onclick="increment(this)">+</button>
+                            </div>   
+                        </div>
+                        <input type="range" class="range-input" id="phyDefIgPer" min="0" max="100" value="0">
+                    </div>
+                    <div class="inputStat group-a">
+                        <div>
+                            <label>방깎% 2</label>
+                            <div class="input-number">
+                                <button onclick="decrement(this)">-</button>
+                                <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                <button onclick="increment(this)">+</button>
+                            </div>   
+                        </div>
+                        <input type="range" class="range-input" id="phyDefRdcPer2" min="0" max="100" value="0">
+                    </div>
+                    <div class="inputStat group-a">
+                        <div>
+                            <label>방무 n</label>
+                            <div class="input-number">
+                                <button onclick="decrement(this)">-</button>
+                                <input type="number" class="number-input" id="" value="0" min="0" max="1000" >
+                                <button onclick="increment(this)">+</button>
+                            </div>   
+                        </div>
+                        <input type="range" class="range-input" id="phyDefIg" min="0" max="1000" value="0">
+                    </div>
+                    <div class="inputStat group-a">
+                        <div>
+                            <label>방깎% 3</label>
+                            <div class="input-number">
+                                <button onclick="decrement(this)">-</button>
+                                <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                <button onclick="increment(this)">+</button>
+                            </div>   
+                        </div>
+                        <input type="range" class="range-input" id="phyDefRdcPer3" min="0" max="100" value="0">
+                    </div>
+                    <div class="inputStat group-a">
+                        <div>
+                            <label>물리피증%</label>
+                            <div class="input-number">
+                                <button onclick="decrement(this)">-</button>
+                                <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                <button onclick="increment(this)">+</button>
+                            </div>   
+                        </div>
+                        <input type="range" class="range-input" id="phyDmgInc" min="0" max="100" value="0">
+                    </div>
+                    <div class="inputStat group-a">
+                        <div>
+                            <label>방깎 n</label>
+                            <div class="input-number">
+                                <button onclick="decrement(this)">-</button>
+                                <input type="number" class="number-input" id="" value="0" min="0" max="1000" >
+                                <button onclick="increment(this)">+</button>
+                            </div>   
+                        </div>
+                        <input type="range" class="range-input" id="phyDefRdc" min="0" max="1000" value="0">
+                    </div>
+                    <div class="inputStat group-b">
+                        <div>
+                        <label>마항깎% 1</label>
+                            <div class="input-number">
+                                <button onclick="decrement(this)">-</button>
+                                <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                <button onclick="increment(this)">+</button>
+                            </div>   
+                        </div>
+                        <input type="range" class="range-input" id="mgDefRdcPer1" min="0" max="100" value="0">
+                    </div>
+                    <div class="inputStat group-b">
+                        <div>
+                            <label>마항무시 n</label>
+                            <div class="input-number">
+                                <button onclick="decrement(this)">-</button>
+                                <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                <button onclick="increment(this)">+</button>
+                            </div>   
+                        </div>
+                        <input type="range" class="range-input" id="mgDefIg" min="0" max="100" value="0">
+                    </div>
+                    <div class="inputStat group-b">
+                        <div>
+                            <label>마항깎% 2</label>
+                            <div class="input-number">
+                                <button onclick="decrement(this)">-</button>
+                                <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                <button onclick="increment(this)">+</button>
+                            </div>   
+                        </div>
+                        <input type="range" class="range-input" id="mgDefRdcPer2" min="0" max="100" value="0">
+                    </div>
+                    <div class="inputStat group-b">
+                        <div>
+                            <label>마법취약 %</label>
+                            <div class="input-number">
+                                <button onclick="decrement(this)">-</button>
+                                <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                <button onclick="increment(this)">+</button>
+                            </div>   
+                        </div>
+                        <input type="range" class="range-input" id="mgDmgWeak" min="0" max="100" value="0">
+                    </div>
+                    <div class="inputStat group-b">
+                        <div>
+                            <label>마항깎% 3</label>
+                            <div class="input-number">
+                                <button onclick="decrement(this)">-</button>
+                                <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                <button onclick="increment(this)">+</button>
+                            </div>   
+                        </div>
+                        <input type="range" class="range-input" id="mgDefRdcPer3" min="0" max="100" value="0">
+                    </div>
+                    <div class="inputStat group-b">
+                        <div>
+                            <label>마법피증%</label>
+                            <div class="input-number">
+                                <button onclick="decrement(this)">-</button>
+                                <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                <button onclick="increment(this)">+</button>
+                            </div>   
+                        </div>
+                        <input type="range" class="range-input" id="mgDmgInc" min="0" max="100" value="0">
+                    </div>
+                    <div class="inputStat group-b">
+                        <div>
+                            <label>마항깎 n</label>
+                            <div class="input-number">
+                                <button onclick="decrement(this)">-</button>
+                                <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                <button onclick="increment(this)">+</button>
+                            </div>   
+                        </div>
+                        <input type="range" class="range-input" id="mgDefRdc" min="0" max="100" value="0">
+                    </div>
+                    <div class="inputStat">
+                        <div>
+                            <label>취약%</label>
+                            <div class="input-number">
+                                <button onclick="decrement(this)">-</button>
+                                <input type="number" class="number-input" id="" value="0" min="0" max="100" >
+                                <button onclick="increment(this)">+</button>
+                            </div>   
+                        </div>
+                        <input type="range" class="range-input" id="dmgWeak" min="0" max="100" value="0">
+                    </div>
+                </div>
             </div>
-            <div class="input-group">
-                <input type="number" class="no-spinner" id="atkBonus" placeholder="방깎" oninput="">
-            </div>
-            <div class="input-group">
-                <input type="number" class="no-spinner" id="atkBonus" placeholder="추가 공격력%의 합" oninput="">
-            </div>
-            <div class="input-group">
-                <input type="number" class="no-spinner" id="debuff1" placeholder="디버프 1 (취약)" oninput="">
-            </div>
-            <div class="input-group">
-                <input type="number" class="no-spinner" id="debuff2" placeholder="디버프 2" oninput="">
-            </div>
-            <div class="input-group">
-                <input type="number" class="no-spinner" id="debuff3" placeholder="디버프 3" oninput="">
+        
+            <div class="base-column3">
+                <div class="radioGroup">
+                    <input type="radio" name="defDisplay" id="physical" value="phy" checked>
+                    <label for="physical" class="customButton">
+                        <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/phy_black.png">
+                        <div>물리방어</div>
+                    </label>
+
+                    <input type="radio" name="defDisplay" id="magical" value="mg">
+                    <label for="magical" class="customButton">
+                        <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/mg_black.png" alt="">
+                        <div>마법방어</div>
+                    </label>
+                </div>
+                <div class="resetGroup">
+                        <input type="button" name="resetInput">
+                        <label class="resetLabel" for="resetInput">초기화</label>
+                </div>
+                
+                
+        
             </div>
         </div>
     </div>
+                
     
     <div id="tab3" class="tab-content">
         <h2>탭 3 컨텐츠</h2>
         <p>여기는 세 번째 탭입니다.</p>
     </div>
 
-    <script src ="script.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/decimal.js"></script>
+    <script src ="js/script.js"></script>
 
 </body>
 </html>

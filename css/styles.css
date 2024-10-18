@@ -1,0 +1,442 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+
+
+.background{
+    background-color: rgb(45, 45, 45);;
+}
+
+
+.tab-menu {
+    display: flex;
+    background-color: transparent;
+}
+
+.tab-menu a {
+    padding: 8px 10px;
+    text-align: center;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    width: 150px;
+    background-color: #e0e0e0;
+    border-right: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.tab-menu a:hover {
+    background-color: #ddd;
+}
+
+.tab-menu a.active {
+    background-color: #ccc;
+    color: black;
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+    border-top: none;
+    background-color: rgb(45, 45, 45);
+}
+
+.tab-content.active {
+    display: block;
+    margin: auto;
+}
+
+#tab1,
+#tab2,
+#tab3 {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+.image-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+
+    display: flex; /* Flexbox 사용 */
+    justify-content: center; /* 수직 가운데 정렬 */
+    align-items: center; /* 수평 가운데 정렬 */
+    text-align: center; /* 텍스트도 가운데 정렬 */
+}
+
+.image-list li {
+    position: relative;
+    width: 80px;
+    height: 105px;
+    margin: 1px;
+    border-radius: 5px;
+    background-color: rgb(255, 118, 69);
+    overflow: hidden; /* 이미지를 li 안에 가둬서 넘치지 않도록 함 */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+.image-list img {
+    width: 75px;
+    height: 75px;
+    margin: 2px;
+    margin-bottom: 0px;
+    object-fit: cover;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: rgb(45, 45, 45);
+    transition: background-color 0.3s ease;
+}
+
+.image-list .overlay {
+    position: absolute; /* li 요소를 기준으로 절대 위치 */
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    border-radius: 5px;
+    background-color: transparent;
+    z-index: 1; /* img 위에 나타나도록 z-index 설정 */
+    pointer-events: none; /* 이벤트 제거, 필요 시 수정 가능 */
+}
+
+.image-list span {
+    display: block;
+    font-family: "Pretendard Variable";
+    margin: 5px;
+    margin-top: 0px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 20px;
+}
+
+.image-list .mid {
+    font-size: 11px;
+}
+
+.image-list .long {
+    font-size: 9px;
+}
+
+.image-list li:hover img {
+    transform: scale(1.05);
+    transition: transform 0.3s;
+}
+
+
+/*탭2*/
+#tab2 {
+    font-family: "Pretendard Variable";
+    background-color: transparent;
+    color: black;
+    font-weight: bold;
+    width: 1000px;
+    padding: 20px;
+    align-items: center;
+    
+}
+
+.baseGrid {
+    display: grid;
+    grid-template-columns: 3fr 6fr 100px;
+    grid-template-rows: 1fr;
+    column-gap: 16px;
+    padding: 0px;
+    align-items: start;
+    box-sizing:border-box;
+}
+
+.base-column1-1,
+.base-column2 {
+    padding: 10px;
+    background-color: #ccc;
+    border-radius: 8px;
+    box-sizing:border-box;
+
+}
+
+.base-column1-2 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #ccc;
+    border-radius: 8px;
+    box-sizing:border-box;
+    margin-top: 10px;
+}
+
+.base-column1,
+.base-column3 {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.grid-subcolumn {
+    display: grid;
+    column-gap: 10px;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 20px;
+}
+
+.allyStat,
+.allyBuff{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    background-color: #999;
+    border-radius: 8px;
+    align-items: center;
+    padding: 10px
+}
+
+.allyBuff {
+    margin-bottom: 20px;
+}
+
+.allyDebuff {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    background-color: #999;
+    border-radius: 8px;
+    align-items: center;
+    padding: 10px
+}
+
+.allyStat > *:not(:last-child),
+.allyBuff > *:not(:last-child){
+    border-bottom: 1px solid #ccc;
+}
+
+.grid-enemyStat{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    background-color: #999;
+    border-radius: 8px;
+    align-items: center;
+    padding: 10px;
+}
+
+.grid-debuff {
+    display: grid;
+    column-gap: 30px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4,1fr);
+    background-color: #999;
+    border-radius: 8px;
+    align-items: center;
+    padding: 10px;
+}
+
+.cal-subtitle {
+    margin-top: 4px;
+    margin-bottom: 6px;
+
+}
+
+
+.grid-enemyStat .inputStat.hidden {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+
+}
+
+.inputStat {
+    width: 100%;
+    height: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+    transition: all 0.3s ease-out;
+}
+
+
+.inputStat > div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.inputStat.group-a{
+    display: block;
+    border-bottom: 1px solid rgb(164, 164, 164);
+}
+
+.inputStat.group-b{
+    display: none;
+    border-bottom: none;
+    
+}
+
+.input-number {
+    display: flex;
+    width: 108px;
+    height: 24px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.input-number button {
+    width: 24px;
+    height: 24px;
+    border: none;
+    background-color: #f8f8f8;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.input-number button:hover {
+    background-color: #e8e8e8;
+}
+.input-number input {
+    font-family: "Pretendard Variable";
+    font-weight: bold;
+    width: 60px;
+    height: 24px; 
+    padding: 8px;
+    border: 1px solid #e8e8e8;
+    background-color: #e8e8e8;
+    text-align: center;
+    font-size: 16px;
+    color: black;
+    box-sizing: border-box;
+}
+
+.input-number input:focus {
+    outline: none;
+}
+
+.input-number input::-webkit-inner-spin-button, 
+.input-number input::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.result {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    text-align: center;
+}
+
+.result-title {
+    padding: 10px 0px;
+    box-sizing: border-box;
+    border-right: 1px solid #777;
+}
+
+.result-number {
+    padding: 10px 0px;
+    box-sizing: border-box;
+}
+
+#tab2 input[type="range"] {
+    -webkit-appearance: none; /* Safari 및 Chrome에서 기본 스타일 제거 */
+    appearance: none; /* 기본 스타일 제거 */
+    height: 6px; /* 슬라이더의 높이 */
+    background-color: white;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/* 슬라이더 진행 부분의 색상 변경 */
+#tab2 input[type="range"]::-webkit-slider-runnable-track {
+    background: transparent;
+    border-radius: 2px;
+    height: 4px
+}
+
+/* Thumb 스타일 */
+#tab2 input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* 기본 thumb 스타일 제거 */
+    appearance: none; /* 기본 thumb 스타일 제거 */
+    width: 12px;
+    height: 16px;
+    background: #000000;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: -6px;
+}
+
+/* Firefox 스타일 */
+
+#tab2 input[type="range"]::-moz-range-track {
+    background: #ddd;
+    border-radius:2px;
+}
+
+#tab2 input[type="range"]::-moz-range-thumb {
+    width: 12px;
+    height: 16px;
+    background: #000000;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.radioGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.base-column3 input[type="radio"] {
+    display: none;
+}
+
+.base-column3 input[type="button"] {
+    display: none;
+}
+
+.resetGroup {
+    display: flex;
+    height: 60px;
+    width: 100%;
+    background-color: #ddd;
+    border: 2px solid #ff0000;
+    border-radius: 8px;
+    cursor: pointer;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.resetGroup:hover {
+    background-color: #999;
+    transition: background-color 0.3s ease;
+}
+
+.resetLabel {
+    pointer-events: none;
+}
+
+.customButton {
+    padding: 10px 20px;
+    background-color: #ddd;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    transition: background-color 0.3s, border-color 0.3s; /* 애니메이션 효과 */
+}
+
+input[type="radio"]:checked + .customButton {
+    background-color: #555;
+    border-color: #555;
+    color: white;
+}
+
+
+
