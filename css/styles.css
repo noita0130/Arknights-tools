@@ -43,7 +43,15 @@
     margin: auto;
 }
 
- .image-list {
+#tab1,
+#tab2,
+#tab3 {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+.image-list {
     display: flex;
     flex-wrap: wrap;
     list-style: none;
@@ -162,6 +170,7 @@
     margin-top: 10px;
 }
 
+.base-column1,
 .base-column3 {
     height: 100%;
     display: flex;
@@ -194,7 +203,7 @@
 .allyDebuff {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr;
     background-color: #999;
     border-radius: 8px;
     align-items: center;
@@ -202,9 +211,8 @@
 }
 
 .allyStat > *:not(:last-child),
-.allyBuff > *:not(:last-child),
-.allyDebuff > *:not(:last-child){
-    border-bottom: 1px solid #A4A4A4;
+.allyBuff > *:not(:last-child){
+    border-bottom: 1px solid #ccc;
 }
 
 .grid-enemyStat{
@@ -337,7 +345,7 @@
     background-color: white;
     width: 100%;
     margin-top: 10px;
-    border-radius: 2px;
+    border-radius: 3px;
     cursor: pointer;
 }
 
@@ -394,7 +402,7 @@
     height: 60px;
     width: 100%;
     background-color: #ddd;
-    border: 1px solid #ccc;
+    border: 2px solid #ff0000;
     border-radius: 8px;
     cursor: pointer;
     align-items: center;
@@ -403,6 +411,14 @@
     box-sizing: border-box;
 }
 
+.resetGroup:hover {
+    background-color: #999;
+    transition: background-color 0.3s ease;
+}
+
+.resetLabel {
+    pointer-events: none;
+}
 
 .customButton {
     padding: 10px 20px;

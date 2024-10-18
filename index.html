@@ -569,11 +569,11 @@
                             <input type="range" class="range-input" id="couragePer" min="0" max="200" value="0">
                         </div>
                     </div>
-                    <p class="cal-subtitle">아군 디버프</p>
+                    <p class="cal-subtitle">아군 디버프 (WIP)</p>
                     <div class="allyDebuff">
                         <div class="inputStat">
                             <div>
-                                <label>공 -%</label>
+                                <label>아군 공 -%</label>
                                 <div class="input-number">
                                     <button onclick="decrement(this)">-</button>
                                     <input type="number" class="number-input" id="" value="0" min="0" max="100" >
@@ -582,30 +582,19 @@
                             </div>
                             <input type="range" class="range-input" id="atkPerMnsAlly" min="0" max="100" value="0">
                         </div>
-                        <div class="inputStat">
-                            <div>
-                                <label>공 -n</label>
-                                <div class="input-number">
-                                    <button onclick="decrement(this)">-</button>
-                                    <input type="number" class="number-input" id="" value="0" min="0" max="500" >
-                                    <button onclick="increment(this)">+</button>
-                                </div>   
-                            </div>
-                            <input type="range" class="range-input" id="atkMnsAlly" min="0" max="500" value="0">
-                        </div>
                     </div>
                 </div>
                 <div class="base-column1-2">
                     <div class="result">
                         <div class="result-title">결과값</div>
-                        <div class="result-number">N/A</div>
+                        <div class="result-number">0</div>
                     </div>
                 </div>
             </div>
             <div class="base-column2">
                 <div class="grid-subcolumn">
                     <div>
-                        <p class="cal-subtitle">아군 능력치</p>
+                        <p class="cal-subtitle">아군 스탯</p>
                         <div class="allyStat">
                             <div class="inputStat">
                                 <div>
@@ -634,27 +623,27 @@
                                     <label>공 %까지</label>
                                     <div class="input-number">
                                         <button onclick="decrement(this)">-</button>
-                                        <input type="number" class="number-input" id="" value="0" min="0" max="200" >
+                                        <input type="number" class="number-input" id="" value="100" min="0" max="400" >
                                         <button onclick="increment(this)">+</button>
                                     </div>   
                                 </div>
-                                <input type="range" class="range-input" id="atkPerBy" min="0" max="200" value="0">
+                                <input type="range" class="range-input" id="atkPerBy" min="100" max="400" value="0">
                             </div>
                             <div class="inputStat">
                                 <div>
                                     <label>스킬계수 %</label>
                                     <div class="input-number">
                                         <button onclick="decrement(this)">-</button>
-                                        <input type="number" class="number-input" id="" value="0" min="0" max="500" >
+                                        <input type="number" class="number-input" id="" value="100" min="0" max="500" >
                                         <button onclick="increment(this)">+</button>
                                     </div>   
                                 </div>
-                                <input type="range" class="range-input" id="skillDmg" min="0" max="500" value="0">
+                                <input type="range" class="range-input" id="skillDmg" min="0" max="500" value="100">
                             </div>
                         </div>
                     </div>
                     <div>
-                        <p class="cal-subtitle">적 방어도</p>
+                        <p class="cal-subtitle">적 스탯</p>
                         <div class="grid-enemyStat">
                             <div class="inputStat group-a">
                                 <div>
@@ -689,8 +678,8 @@
                                 </div>
                                 <input type="range" class="range-input" id="phyDefBns" min="0" max="500" value="0">
                             </div>
-                            <div class="inputStat group-a">
-                                <div >
+                            <div class="inputStat group-a" style="border-bottom: none;">
+                                <div>
                                     <label>물리피해감소%</label>
                                     <div class="input-number">
                                         <button onclick="decrement(this)">-</button>
@@ -713,7 +702,7 @@
                             </div>
                             <div class="inputStat group-b">
                                 <div>
-                                    <label>마항증가</label>
+                                    <label>마항 +n</label>
                                     <div class="input-number">
                                         <button onclick="decrement(this)">-</button>
                                         <input type="number" class="number-input" id="" value="0" min="0" max="100" >
@@ -922,7 +911,7 @@
                 </div>
                 <div class="resetGroup">
                         <input type="button" name="resetInput">
-                        <label class="resetLabel" for="resetInput"><font color="red">초기화</font></label>
+                        <label class="resetLabel" for="resetInput">초기화</label>
                 </div>
                 
                 
@@ -938,7 +927,7 @@
     </div>
 
 
-
+    <script src="https://cdn.jsdelivr.net/npm/decimal.js"></script>
     <script src ="js/script.js"></script>
 
 </body>
