@@ -20,7 +20,7 @@
     <!-- 탭 컨텐츠 -->
     <div id="tab1" class="tab-content">
         <h1><font color="white">오퍼레이터 목록</font></h1>
-        <div>
+        <div class="search">
             <input type="text" id="searchInput" placeholder="오퍼레이터 검색..." oninput="searchOperators()">
             <button onclick="setImagesIndex(0)">초기화</button>
             <button onclick="setImagesIndex(1)">전체없음표시</button>
@@ -30,8 +30,7 @@
         
 
         <!-- 이미지 리스트 -->
-        <!-- 핑댕이 (링 피아메타 사이)
-            루멘 (아이린 이전)
+        <!--루멘 (아이린 이전)
             테레시아 (로고스 위샤델사이) 없음
             이격 시즈 추가하기-->
         <ul class="image-list" id="operatorList">
@@ -295,6 +294,11 @@
                 <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>링</span>
             </li>
+            <li data-name="골든글로우 골글 핑댕이 핑냥이 분냥이">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Goldenglow_icon.png" alt="핑댕이" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <span>골든글로우</span>
+            </li>
             <li data-name="피아메타">
                 <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Fiammetta_icon.png" alt="피아메타" onclick="overlayImage(this)">
                 <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
@@ -304,6 +308,11 @@
                 <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Horn_icon.png" alt="혼" onclick="overlayImage(this)">
                 <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>혼</span>
+            </li>
+            <li data-name="루멘">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Lumen_icon.png" alt="루멘" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <span>루멘</span>
             </li>
             <li data-name="아이린 삐약이">
                 <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Irene_icon.png" alt="아이린" onclick="overlayImage(this)">
@@ -480,6 +489,11 @@
                 <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>아스카론</span>
             </li>
+            <li data-name="테레시아 마왕 마앟 시빌라이트 에테르나">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Civilight_Eterna_icon.png" alt="시빌라이트 에테르나" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <span class="long">시빌라이트<br>에테르나</span>
+            </li>
             <li data-name="로고스">
                 <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Logos_icon.png" alt="로고스" onclick="overlayImage(this)">
                 <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
@@ -514,6 +528,26 @@
                 <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Marcille_icon.png" alt="마르실" onclick="overlayImage(this)">
                 <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
                 <span>마르실</span>
+            </li>
+            <li data-name="비나 빅토리아 인푸 좆푸">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Vina_Victoria_icon.png" alt="비나 빅토리아" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <span class="mid">비나 빅토리아</span>
+            </li>
+            <li data-name="크라운슬레이어 크붕이">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Crownslayer_icon.png" alt="크라운슬레이어" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <span class="mid">크라운슬레이어</span>
+            </li>
+            <li data-name="불피스폴리아 마망 맘즈란 스즈맘">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Vulpisfoglia_icon.png" alt="불피스폴리아" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <span class="mid">불피스폴리아</span>
+            </li>
+            <li data-name="라플란드 더 데카덴차 메이플 꼬술이 꼬슬이">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/avatar/Lappland_the_Decadenza_icon.png" alt="라플란드 더 데카덴차" onclick="overlayImage(this)">
+                <img src="https://raw.githubusercontent.com/noita0130/Arknights-Images/main/graphics/elite_none.png" alt="덧씌울 이미지" class="overlay">
+                <span class="long">라플란드<br>더 데카덴차</span>
             </li>
         </ul>
     </div>
